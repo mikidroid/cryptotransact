@@ -46,7 +46,7 @@
 
                                                         <center><img src="https://chart.googleapis.com/chart?chs=250x250&amp;cht=qr&amp;chl=13HZjAkaA38mswgLgT1n2cosw5gvEqNGZ7" heigh="200" width="200"> <img></center>
 
-                                                    Wallet Address: 13HZjAkaA38mswgLgT1n2cosw5gvEqNGZ7
+                                                    Wallet Address: {{env('BTC_ADDRESS')}}
 
                                                     </h3>
                                                     <!--<h4 class="text-danger">Account Number: 09876545678</h4>-->
@@ -233,16 +233,17 @@ $('#popInvest').hide();
   <hr>
 </div>
 <div class="">
-    <form action="/user/wallet/bank_deposit" method="post">
+    <form action="/user/activity" method="POST">
+        @csrf
         <div class="form-group" align="left">
-            <input type="hidden" class="form-control" name="_token" value="a0RSFbuw9NTKuSnJDMFUD90z1O8Z7HM2mOpMF1S3">
+            <input type="hidden" class="form-control" name="type" value="deposit">
         </div>
         <div class="form-group">
           <div class="input-group">
             <div class="input-group-prepend " >
               <span class="input-group-text span_bg">$</span>
             </div>
-            <input type="number" class="form-control" name="amt"  required placeholder="Enter Amount Sent" >
+            <input type="number" class="form-control" name="amount"  required placeholder="Enter Amount Sent" >
           </div>
         </div>
         <!--<div class="form-group">-->

@@ -26,7 +26,6 @@ class AuthController extends Controller
         if(Auth::attempt($cred,$remember))
         {
              $request->session()->regenerate();
-             session()->flash('success','Login successful!');
              return redirect()->intended('/user/'.Auth::user()->username.'/dashboard');
         }
 
@@ -52,21 +51,22 @@ class AuthController extends Controller
             'lastname'=>'required',
             'username'=>'required|unique:users,username'
         ]);
-
+        $text = "ity5dff8x";
+        $shuffled = str_shuffle($text);
         $addCred = [
         'email'=>$request->email,
         'password'=>Hash::make($request->password),
         'firstname'=>$request->firstname,
         'lastname'=>$request->lastname,
         'username'=>$request->username,
-        'ref_link'=>env('WEBSITE_URL').'/'.now().'/'.$request->username.'/register'];
+        'ref_link'=>env('WEBSITE_URL').'/'.$shuffled.'/'.$request->username.'/register'];
 
         if(User::create($addCred))
         {
             session()->flash('success','Congrats! your '.env('APP_NAME').' account is created');
             return redirect('/login');
         }
-        session()->flash('error','error mehn!');
+        session()->flash('error','Error with registration!');
         return back();
     }
 
@@ -77,6 +77,58 @@ class AuthController extends Controller
     $request->session()->invalidate();
     $request->session()->regenerateToken();
     return redirect('/');
+    }
+
+    public function updateProfile(Request $request,$usernane)
+    {
+        $addCred = [
+        'state'=>$request->state,
+        'phone'=>$request->phone,
+        'country'=>$request->country,
+        'address'=>$request->address,
+        'profile_complete'=>true,
+        ];
+
+        if(User::find(Auth::user()->id)->update($addCred))
+        {
+            session()->flash('success','Your profile has been updated!');
+            return back();
+        }
+        session()->flash('error','Error with details!');
+        return back();
+    }
+
+    public function updateBank(Request $request,$usernane)
+    {
+        $addCred = [
+        'bank_name'=>$request->bank_name,
+        'acc_no'=>$request->acc_no,
+        'acc_name'=>$request->acc_name,
+        ];
+
+        if(User::find(Auth::user()->id)->update($addCred))
+        {
+            session()->flash('success','Your bank details has been updated!');
+            return back();
+        }
+        session()->flash('error','Error with details!');
+        return back();
+    }
+
+    public function updateCrypto(Request $request,$usernane)
+    {
+        $addCred = [
+        'coin_host'=>$request->coin_host,
+        'wallet_address'=>$request->wallet_address
+        ];
+
+        if(User::find(Auth::user()->id)->update($addCred))
+        {
+            session()->flash('success','Your crypto details has been updated!');
+            return back();
+        }
+        session()->flash('error','Error with details!');
+        return back();
     }
 
 }

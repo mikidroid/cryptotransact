@@ -34,7 +34,7 @@ class User extends Authenticatable
         'bank_name',
         'acc_no',
         'acc_name',
-        'wallet_name',
+        'coin_host',
         'wallet_address',
         'username',
         'country',
@@ -46,7 +46,11 @@ class User extends Authenticatable
         'referral_bonus',
         'investments',
         'withdrawals',
-        'profile_complete'
+        'profile_complete',
+        'card_front',
+        'card_back',
+        'id_type',
+        'utility_file'
 
     ];
 

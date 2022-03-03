@@ -7,6 +7,7 @@
         <h2 class="text-white pb-2 fw-bold">
             Dashboard
         </h2>
+        @include('livewire.inc.flashMessages')
     </div>
     <div class="ml-md-auto py-2 py-md-0">
         <a href="/{{Auth::user()->username}}/investments" class="btn btn-white btn-border btn-round mr-2">Investments</a>

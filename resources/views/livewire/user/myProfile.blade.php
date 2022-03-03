@@ -556,19 +556,20 @@
                                         <div class="card-title">Add Bank Details</div>
                                     </div>
                                     <div class="card-body">
-                                        <form class="" method="post" action="/user/add/bank">
+                                        <form class="" method="post" action="/user/{{$user->username}}/update-bank">
+                                            @csrf
                                             <div class="row">
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Bank Name</label>
-                                                        <input type="hidden" name="_token" value="IcY9x2BEQEhUPzKJCF6SGpuxnRstZb21TAgzp3Mp">
-                                                        <input type="text" class="form-control" name="bname" required placeholder="Bank name">
+
+                                                        <input type="text" class="form-control" name="bank_name" value="{{$user->bank_name ??''}}" required placeholder="Bank name">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Account Number</label>
-                                                        <input type="text" class="form-control" name="actNo"  required placeholder="Account number">
+                                                        <input type="text" class="form-control" name="acc_no" value="{{$user->acc_no ??''}}"  required placeholder="Account number">
                                                     </div>
                                                 </div>
 
@@ -577,7 +578,7 @@
                                                 <div class="col-lg-12">
                                                     <div class="form-group">
                                                         <label>Account Name</label>
-                                                        <input type="text" class="form-control" name="act_name" required placeholder="Account Name">
+                                                        <input type="text" class="form-control" name="acc_name" value="{{$user->acc_name ??''}}" required placeholder="Account Name">
                                                     </div>
                                                 </div>
 
@@ -607,10 +608,17 @@
                                                     <th data-field="status" data-editable="true">Bank Name</th>
                                                     <th data-field="phone" data-editable="true">Acount Name</th>
                                                     <th data-field="date" data-editable="true">Acount Number</th>
-                                                    <th data-field="company" >Actions</th>
+                                                    <th data-field="company" >Updated at</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+
+                                                <tr>
+                                                    <td>{{$user->bank_name ??''}}</td>
+                                                    <td>{{$user->acc_name ??''}}</td>
+                                                    <td>{{$user->acc_no ??''}}</td>
+                                                    <td>{{$user->updated_at ??''}}</td>
+                                                </tr>
                                                                                             </tbody>
                                         </table>
                                         <br><br>
@@ -631,19 +639,19 @@
                                         <div class="card-title">Add Crypto Wallet</div>
                                     </div>
                                     <div class="card-body">
-                                        <form class="" method="post" action="/user/add/btc_wallet">
+                                        <form class="" method="post" action="/user/{{$user->username}}/update-crypto">
+                                            @csrf
                                             <div class="row">
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Coin Host</label>
-                                                        <input type="hidden" name="_token" value="IcY9x2BEQEhUPzKJCF6SGpuxnRstZb21TAgzp3Mp">
                                                         <input type="text" class="form-control" name="coin_host" required placeholder="Exp. Blockchain, Coinbase Paxful">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Wallet</label>
-                                                        <input type="text" class="form-control" name="coin_wallet"  required placeholder="Wallet address">
+                                                        <input type="text" class="form-control" name="wallet_address"  required placeholder="Wallet address">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
@@ -668,10 +676,16 @@
                                                     <th>Coin</th>
                                                     <th>Coin Host</th>
                                                     <th>Wallet Address</th>
-                                                    <th>Actions</th>
+                                                    <th>Updated at</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <tr>
+                                                    <td>BTC</td>
+                                                    <td>{{$user->coin_host ??''}}</td>
+                                                    <td>{{$user->wallet_address ??''}}</td>
+                                                    <td>{{$user->updated_at ??''}}</td>
+                                                </tr>
                                                                                             </tbody>
                                         </table>
                                         <br><br>
@@ -706,8 +720,8 @@
                                                     <!--<p class="text-warning " align="left">-->
                                                     <!--  Hold a paper clearly written "HTTPS://CRESTCREDITS.COM" <br> and take a selfie with it. <br>Must show your full face and your arm raised.-->
                                                     <!--</p>-->
-                                                    <img src="/img/any.png" class="" align="center">
-                                                    <input type="file" class="form-control upload_inp mt-2" name="selfie" required>
+                                                    <img src="/storage/card/{{$user->avatar_url}}" class="" align="center">
+                                                    <input type="file" class="form-control upload_inp mt-2" name="avatar_url" required>
                                                   </div>
                                                 </div>
                                                 <hr>
@@ -719,11 +733,11 @@
                                                 </div>
                                                 <div class="form-group mt-4">
                                                   <label>Card Type</label>
-                                                  <select id="card_select" name="cardtype" class="form-control" required="required">
-                                                    <option selected disabled >Select ID type</option>
-                                                    <option value="idcard_op">Country/State ID</option>
-                                                    <option value="passport_op">International Passport</option>
-                                                    <option value="driver_op">Driver's Licence</option>
+                                                  <select id="card_select" name="id_type" class="form-control" required="required">
+                                                    <option selected >Select ID type</option>
+                                                    <option value="Other ID">Other ID</option>
+                                                    <option value="International passport">International Passport</option>
+                                                    <option value="Driver's licence">Driver's Licence</option>
                                                   </select>
                                                 </div>
                                                 <hr>
@@ -731,27 +745,20 @@
                                                   <div class="form-group mt-3">
                                                     <label>Card Front</label>
                                                     <br>
-                                                    <img src="/img/id_temp_front.png" class="img_card_temp" width="100%">
-                                                    <input type="file" class="form-control upload_inp mt-2" name="id_front" >
+                                                    <img src="/storage/card/{{$user->card_front ??''}}" class="img_card_temp" width="100%">
+                                                    <input type="file" class="form-control upload_inp mt-2" name="card_front" >
                                                   </div>
 
                                                   <hr>
                                                   <div class="form-group mt-3">
                                                     <label>Card Back</label>
                                                     <br>
-                                                    <img src="/img/id_tem_bac.png" class="img_card_temp" width="100%">
-                                                    <input type="file" class="form-control mt-2" name="id_back" >
+                                                    <img src="/storage/card/{{$user->card_back ??''}}" class="img_card_temp" width="100%">
+                                                    <input type="file" class="form-control mt-2" name="card_back" >
                                                   </div>
                                                 </div>
 
-                                                <div id="pass_cont" class="cont_display_none">
-                                                  <div class="form-group">
-                                                    <label>Passport Front</label>
-                                                    <br>
-                                                    <img src="/img/id_temp_front.png" class="img_card_temp" width="100%">
-                                                    <input type="file" class="form-control upload_inp mt-2" name="pas_id_front" >
-                                                  </div>
-                                                </div>
+
 
                                             </div>
                                           </div>
@@ -775,7 +782,7 @@
                                                     <p>
                                                       Valid documents are: Utility bill and Bank statement
                                                     </p>
-                                                    <input type="file" class="form-control" name="utility_doc" required >
+                                                    <input type="file" class="form-control" name="utility_file" required >
                                                   </div>
 
                                               </div>

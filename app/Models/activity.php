@@ -21,6 +21,7 @@ class activity extends Model
         'type',
         'wallet_address',
         'plan',
+        'username'
     ];
 
     public function _user(){

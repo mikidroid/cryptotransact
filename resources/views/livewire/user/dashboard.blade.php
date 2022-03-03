@@ -498,36 +498,15 @@
 																</tr>
 															</tfoot>
 															<tbody>
-																																	<tr>
-																		<td>
-																			User logged in to account
-																		</td>
-																		<td>2022-03-01 23:27:29</td>
-																	</tr>
-																																	<tr>
-																		<td>
-																			User Updated profile
-																		</td>
-																		<td>2022-02-28 19:05:13</td>
-																	</tr>
-																																	<tr>
-																		<td>
-																			User logged in to account
-																		</td>
-																		<td>2022-02-28 19:03:15</td>
-																	</tr>
-																																	<tr>
-																		<td>
-																			User logged in to account
-																		</td>
-																		<td>2022-02-28 15:29:47</td>
-																	</tr>
-																																	<tr>
-																		<td>
-																			User logged in to account
-																		</td>
-																		<td>2022-02-28 14:25:55</td>
-																	</tr>
+
+                                                                @foreach ($activity as $act)
+                                                                <tr>
+                                                                    <td>
+                                                                        You made {{$act->type}}
+                                                                    </td>
+                                                                    <td>{{$act->created_at}}</td>
+                                                                </tr>
+                                                                @endforeach
 
 															</tbody>
 														</table>

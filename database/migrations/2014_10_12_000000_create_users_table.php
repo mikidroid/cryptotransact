@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('bank_name')->nullable();
             $table->string('acc_no')->nullable();
             $table->string('acc_name')->nullable();
-            $table->string('wallet_name')->nullable();
+            $table->string('coin_host')->nullable();
             $table->string('wallet_address')->nullable();
             $table->string('avatar_url', 2048)->nullable();
             $table->string('ref_link');
@@ -42,6 +42,10 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->boolean('profile_complete')->default(false);
+            $table->string('id_type')->nullable();
+            $table->string('card_front')->nullable();
+            $table->string('card_back')->nullable();
+            $table->string('utility_file')->nullable();
             $table->timestamps();
         });
     }

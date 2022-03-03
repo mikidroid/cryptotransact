@@ -91,7 +91,7 @@
                                 <li>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="/user/{{Auth::user()->username}}/dashboard"><span class="fa fa-desktop"></span> &nbsp;Dashboard</a>
-                                    <a class="dropdown-item" href="/user/{{Auth::user()->username}}/wallet"><span class="fa fa-folder"></span>&nbsp; Deposit</a>
+                                    <a class="dropdown-item" href="/user/{{Auth::user()->username}}/deposit"><span class="fa fa-folder"></span>&nbsp; Deposit</a>
                                     <a class="dropdown-item" href="/user/{{Auth::user()->username}}/investments"><span class="fa fa-wallet"></span>&nbsp; My Investments</a>
                                     <a class="dropdown-item" href="/user/{{Auth::user()->username}}/withdrawal"><span class="fa fa-download"></span>&nbsp; Withdrawal</a>
                                     <a class="dropdown-item" href="/user/{{Auth::user()->username}}/downlines"><span class="fa fa-users"></span>&nbsp; Downlines</a>
@@ -147,7 +147,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a  href="/user/{{Auth::user()->username}}/wallet">
+                        <a  href="/user/{{Auth::user()->username}}/deposit">
                             <i class="fas fa-wallet"></i>
                             <p>Wallet Deposit</p>
                         </a>
