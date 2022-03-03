@@ -48,7 +48,7 @@ class ActivityController extends Controller
         $au = Auth::user();
         $r = $request;
 
-        if(!$r->amount < 500)
+        if(!$r->amount > 500)
         {   //if amount isnt = minimum amount
             session()->flash('error','Failed, refresh and try again!');
             return back();

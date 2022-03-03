@@ -488,12 +488,16 @@
 															<thead>
 																<tr>
 																	<th>Actions</th>
+                                                                    <th>Amount</th>
+                                                                    <th>Status</th>
 																	<th>Date</th>
 																</tr>
 															</thead>
 															<tfoot>
 																<tr>
 																	<th>Actions</th>
+                                                                    <th>Amount</th>
+                                                                    <th>Status</th>
 																	<th>Date</th>
 																</tr>
 															</tfoot>
@@ -502,8 +506,10 @@
                                                                 @foreach ($activity as $act)
                                                                 <tr>
                                                                     <td>
-                                                                        You made {{$act->type}}
+                                                                        You made a {{$act->type}}
                                                                     </td>
+                                                                    <td>$ {{$act->amount}}</td>
+                                                                    <td>{{$act->status}}</td>
                                                                     <td>{{$act->created_at}}</td>
                                                                 </tr>
                                                                 @endforeach

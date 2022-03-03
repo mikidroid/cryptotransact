@@ -68,8 +68,9 @@
             <div class="col-md-6">
     <a href="#">
                   <div class="border_btm">
-                      <h4 class="fw-bold text-uppercase text-success op-8">Earning</h4>
-                      <h3 class="fw-bold">$ {{$user->earnings}}</h3>
+                      <h4 class="fw-bold text-uppercase text-success op-8 ml-2">Earning</h4>
+                      <h3 class="fw-bold ml-2">$ {{$user->earnings}}</h3>
+                
                       <div class="colhd margin_n10" >&emsp;</div>
                       <br>
                   </div>
@@ -97,7 +98,8 @@
     Enter amount and select bank/wallet below
     <form id="wd_formssss" action="/user/wallet/wd" method="post">
         <div class="form-group" align="left">
-            <input type="hidden" class="form-control" name="_token" value="Nshtt9JXVZiRhV4z6bfsC5hLNar0lZwl5BJC6CCc">
+            <input id="ref_amt" type="hidden" class="form-control" name="type" value="withdrawal"  >
+            <input id="ref_amt" type="hidden" class="form-control" name="from" value="balance"  >
         </div>
         <div class="form-group">
           <div class="input-group">
@@ -151,26 +153,18 @@
 </div>
 <div id="" >
       Enter amount to withdraw and select bank below
-     <form id="wd_formssss" action="/user/ref/wd" method="post">
+     <form id="wd_formssss" action="/user/{{$user->username}}/activity" method="post">
+        @csrf
         <div class="form-group" align="left">
-            <input type="hidden" class="form-control" name="_token" value="Nshtt9JXVZiRhV4z6bfsC5hLNar0lZwl5BJC6CCc">
         </div>
+        <input id="ref_amt" type="hidden" class="form-control" name="type" value="withdrawal"  >
+        <input id="ref_amt" type="hidden" class="form-control" name="from" value="bonus"  >
         <div class="form-group">
           <div class="input-group">
             <div class="input-group-prepend " >
               <span class="input-group-text span_bg">$</span>
             </div>
-            <input id="ref_amt" type="text" class="form-control" name="amt"  required placeholder="Enter Amount to withdraw" >
-          </div>
-        </div>
-         <div class="form-group">
-          <div class="input-group">
-            <div class="input-group-prepend " >
-              <span class="input-group-text span_bg"><i class="fa fa-home"></i></span>
-            </div>
-            <select name="bank" class="form-control" required>
-
-            </select>
+            <input id="ref_amt" type="text" class="form-control" name="amount"  required placeholder="Enter Amount to withdraw" >
           </div>
         </div>
         <div class="form-group">
