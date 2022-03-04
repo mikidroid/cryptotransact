@@ -93,4 +93,13 @@ class User extends Authenticatable
         return $this->hasMany(activity::class);
       }
 
+
+      public function routeNotificationForMail($notification)
+    {
+        // Return email address only...
+        // return $this->email_address;
+
+        // Return email address and name...
+        return [$this->email_address => $this->name];
+    }
 }

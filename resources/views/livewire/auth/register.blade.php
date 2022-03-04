@@ -66,7 +66,7 @@
                                         <div class="reg_form_scroll scroll">
                                             <form method="POST" action="register">
                                                 @csrf
-
+                                                @include('livewire.inc.flashMessages')
                                                 <div class="form-group row">
                                                     <div class="col-sm-6">
                                                         <label for="firstname" class=" col-form-label text-md-right">First Name</label>
@@ -84,6 +84,9 @@
                                                 <div class="form-group row">
 
                                                     <div class="col-sm-12">
+                                                        @error('email')
+                                                        <div class="alert-danger p-1">{{$message}}</div>
+                                                        @enderror
                                                         <label for="email" class=" col-form-label text-md-right">E-Mail Address</label>
                                                         <input id="email" type="email" class="form-control  regTxtBox" name="email" value="{{old('email')}}" required autocomplete="email" placeholder="Email">
 

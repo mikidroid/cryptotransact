@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Notifications\RegistrationMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -61,8 +62,11 @@ class AuthController extends Controller
         'username'=>$request->username,
         'ref_link'=>env('WEBSITE_URL').'/'.$shuffled.'/'.$request->username.'/register'];
 
-        if(User::create($addCred))
+        $createUser = new User($addCred);
+
+        if($createUser->save())
         {
+            $createUser->notify(new RegistrationMail($createUser));
             session()->flash('success','Congrats! your '.env('APP_NAME').' account is created');
             return redirect('/login');
         }
