@@ -2,6 +2,9 @@
 
 namespace App\Http;
 use App\Http\Middleware\adminAccess;
+use App\Http\Middleware\AdminAuth;
+use App\Http\Middleware\Guest;
+use App\Http\Middleware\UserAuth;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -65,5 +68,8 @@ class Kernel extends HttpKernel
          'adminAccess'=> \App\Http\Middleware\adminAccess::class,
           'userAccess'=>
           \App\Http\Middleware\userAccess::class,
+          'UserAuth'=> UserAuth::class,
+          'AdminAuth'=> AdminAuth::class,
+          'Guest'=> Guest::class
     ];
 }

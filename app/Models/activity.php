@@ -20,6 +20,8 @@ class activity extends Model
         'ref_id',
         'type',
         'wallet_address',
+        'start_date',
+        'expire_date',
         'plan',
         'username'
     ];

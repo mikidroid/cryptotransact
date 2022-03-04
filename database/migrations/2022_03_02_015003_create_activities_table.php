@@ -26,6 +26,8 @@ class CreateActivitiesTable extends Migration
             $table->string('ref_id')->nullable();
             $table->string('type');
             $table->string('wallet_address')->nullable();
+            $table->string('start_date')->nullable();
+            $table->string('expire_date')->nullable();
             $table->string('plan')->nullable();
             $table->string('status')->default('pending'); //pending or successful
 
