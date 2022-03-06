@@ -41,3 +41,21 @@ Route::prefix('user')->middleware('UserAuth')->group(function () {
 
     Route::post('/activity', [ActivityController::class,'create']);
 });
+
+//
+//
+// Admin routes
+Route::prefix('admin')->middleware('AdminAuth')->group(function () {
+    Route::get('/{username}/dashboard', [dashboard::class,'index']);
+    Route::get('/{username}/profile', [dashboard::class,'profile']);
+    Route::get('/{username}/transfer', [dashboard::class,'transfer']);
+    Route::get('/{username}/investments', [dashboard::class,'investments']);
+    Route::post('/{username}/update-profile', [AuthController::class,'updateProfile']);
+    Route::post('/{username}/update-bank', [AuthController::class,'updateBank']);
+    Route::post('/{username}/update-crypto', [AuthController::class,'updateCrypto']);
+    Route::get('/{username}/user', [dashboard::class,'user']);
+    Route::get('/{username}/users', [dashboard::class,'users']);
+    Route::post('/{username}/confirm-deposit', [dashboard::class,'ConfirmDeposit']);
+    Route::post('/{username}/confirm-withdrawal', [dashboard::class,'ConfirmWithdrawal']);
+    Route::post('/activity', [ActivityController::class,'create']);
+});

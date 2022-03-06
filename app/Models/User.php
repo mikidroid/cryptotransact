@@ -29,6 +29,8 @@ class User extends Authenticatable
         'firstname',
         'email',
         'password',
+        'earnings',
+        'downlines',
         'level',
         'phone',
         'bank_name',
