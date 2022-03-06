@@ -31,6 +31,9 @@ class investment extends Model
     public function Expired(){
         $check = $this::where('user_id',Auth::user()->id)->first();
         $date = now();
+        if(is_null($check)){
+          return;
+        }
         if($check->elapse_date < $date ){
          $userUpdate = User::find(Auth::user()->id);
          $userUpdate->balance += $check->amount*2;
