@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-	<title>{{env('APP_NAME')}} - Sign in to continue to {{env('APP_NAME')}}</title>
+	<title> {{env('APP_NAME')}} - Dasboard</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	<link rel="icon" href="/img/logo.png" type="image/x-icon"/>
     <script src="js/app.js"></script>
