@@ -18,6 +18,7 @@
 		});
 	</script>
 	<!-- CSS Files -->
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
 	<link rel="stylesheet" href="/atlantis/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/atlantis/css/atlantis.min.css">
 	<link rel="stylesheet" href="/atlantis/style.css">

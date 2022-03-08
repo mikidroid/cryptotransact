@@ -136,7 +136,7 @@
 
                     <li class="nav-item">
                         <a href="/user/{{Auth::user()->username}}/dashboard">
-                            <i class="fas fa-layer-group"></i>
+                            <i class="fas fa-folder"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
@@ -148,7 +148,7 @@
                     </li>
                     <li class="nav-item">
                         <a  href="/user/{{Auth::user()->username}}/deposit">
-                            <i class="fas fa-wallet"></i>
+                            <i class="fas fa-folder"></i>
                             <p>Wallet Deposit</p>
                         </a>
                     </li>
@@ -183,7 +183,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="/user/{{Auth::user()->username}}/contact">
-                            <i class="fab fa-teamspeak"></i>
+                            <i class="fab fa-mobile"></i>
                             <p>Contact Support</p>
 
 
@@ -192,11 +192,11 @@
 
                     <li class="nav-item">
                         <form method="POST" action="/logout">
-                        @csrf
-                        <button class="btn btn-link" type="submit">
-                            <i class="fas fa-arrow-right"></i>
-                            <p>Logout</p>
-                        </button></form>
+                            @csrf
+                            <button class="btn btn-link" type="submit">
+                                <i class="fas fa-arrow-right"></i>
+                                Logout
+                            </button></form>
                     </li>
 
 

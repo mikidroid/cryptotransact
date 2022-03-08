@@ -74,6 +74,19 @@ class ActivityController extends Controller{
             'username'=>$au->username
         ];
 
+        if($request->amount < env('MIN_INVESTMENT'))
+        {   //if amount isnt = minimum amount
+            session()->flash('error','Failed, transfer above $'.env('MIN_TRANSFER').', refresh and try again!');
+            return;
+
+        }
+
+        if($request->amount > $au->balance)
+        {   //if amount isnt = minimum amount
+            session()->flash('error','Failed, insufficient balance!');
+            return;
+        }
+
         $check = investment::where('user_id',Auth::user()->id)->first();
         $date = now();
 
@@ -106,74 +119,11 @@ class ActivityController extends Controller{
 
          }
 
-         //if expired
-
-         if($check->elapse_date < $date ){
-
-         $userUpdate = User::find(Auth::user()->id);
-         $userUpdate->balance += $check->amount*2;
-         $userUpdate->earnings += $check->amount*2;
-         $check->delete();
-
-         // work on database
-         // create data with array
-       $create = new investment($data);
-
-       if(!$create)
-       {   //if there was error while creating
-           session()->flash('error','Failed to make investment, refresh and try again!');
-           return;
-       }
-
-       //check for sender in database to update balance
-       $user = User::find($au->id);
-       $user->balance -= $this->r->amount;
-       $user->investments += 1;
-       //save details
-       $create->save();
-       $user->save();
-
-       //send WithdrawalMail
-       Notification::send(Auth::user(),new InvestmentMail($create));
-
-       //if successful
-       session()->flash('success','Congrats, investment successful!');
-       return;
-
+         else{
+            session()->flash('error','Ongoing investment!');
+            return;
          }
 
-
-        else {
-        //if there was error while creating
-        session()->flash('error','Failed to make investment, you have an ongoing investment!');
-        return;
-        }
-
-
-
-       // create data with array
-       $create = new investment($data);
-
-       if(!$create)
-       {   //if there was error while creating
-           session()->flash('error','Failed to make investment, refresh and try again!');
-           return;
-       }
-
-       //check for sender in database to update balance
-       $user = User::find($au->id);
-       $user->balance -= $this->r->amount;
-       $user->investments += 1;
-       //save details
-       $create->save();
-       $user->save();
-
-       //send WithdrawalMail
-       Notification::send(Auth::user(),new InvestmentMail($create));
-
-       //if successful
-       session()->flash('success','Congrats, investment successful!');
-       return;
 
     }
      //

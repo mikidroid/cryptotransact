@@ -33,7 +33,7 @@ class investment extends Model
         $date = now();
 
         if(is_null($check)){
-          return true;
+          return;
         }
 
          if($check->elapse_date < $date ){
@@ -45,7 +45,7 @@ class investment extends Model
         }
 
         else{
-        return false;
+        return;
         }
     }
 }

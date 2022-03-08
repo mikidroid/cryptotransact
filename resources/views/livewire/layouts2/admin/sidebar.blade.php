@@ -178,7 +178,7 @@
                         @csrf
                         <button class="btn btn-link" type="submit">
                             <i class="fas fa-arrow-right"></i>
-                            <p>Logout</p>
+                            Logout
                         </button></form>
                     </li>
 
