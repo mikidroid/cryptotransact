@@ -68,7 +68,7 @@
                     <li class="nav-item dropdown hidden-caret">
                         <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                             <div class="avatar-sm">
-                                                                        <img src="/img/any.png" alt="image profile" class="avatar-img rounded-circle" style="">
+                            <img src="/img/any.png" alt="image profile" class="avatar-img rounded-circle" style="">
 
                             </div>
                         </a>

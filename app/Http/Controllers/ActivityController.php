@@ -16,8 +16,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class ActivityController extends Controller
-{
+class ActivityController extends Controller{
+
+    public $r;
+
+    public function __construct(Request $request){
+       $this->r = $request;
+    }
+
     public function create(Request $request)
     {
       switch($request->type){
@@ -42,13 +48,134 @@ class ActivityController extends Controller
 
          //if it is a investment
          case 'investment':
-            $inv = new InvestmentController($request);
-            $inv->new();
+            $this->createInvestment($request);
             return back();
             break;
       }
     }
+    //
+    //
+    // Investment
+    public function createInvestment($request){
+         // Check if investment already exist
+        // $checkExisting = new investment();
+       //  $check = $checkExisting->Expired();
+        // shorthand for user eloquent
+        $au = Auth::user();
 
+        $data = [
+            'email'=>$au->email,
+            'earning'=>0,
+            'amount'=>$this->r->amount,
+            'user_id'=>$au->id,
+            'elapse_date'=>now()->addDays(env('INVESTMENT_ELAPSE_DATE')),
+            'start_date'=>now(),
+           // 'plan'=>r->plan,  //will add later
+            'username'=>$au->username
+        ];
+
+        $check = investment::where('user_id',Auth::user()->id)->first();
+        $date = now();
+
+
+        // if null
+         if(is_null($check)){
+          // create data with array
+        $create = new investment($data);
+
+        if(!$create)
+        {   //if there was error while creating
+            session()->flash('error','Failed to make investment, refresh and try again!');
+            return;
+        }
+
+        //check for sender in database to update balance
+        $user = User::find($au->id);
+        $user->balance -= $this->r->amount;
+        $user->investments += 1;
+        //save details
+        $create->save();
+        $user->save();
+
+        //send WithdrawalMail
+        Notification::send(Auth::user(),new InvestmentMail($create));
+
+        //if successful
+        session()->flash('success','Congrats, investment successful!');
+        return;
+
+         }
+
+         //if expired
+
+         if($check->elapse_date < $date ){
+
+         $userUpdate = User::find(Auth::user()->id);
+         $userUpdate->balance += $check->amount*2;
+         $userUpdate->earnings += $check->amount*2;
+         $check->delete();
+
+         // work on database
+         // create data with array
+       $create = new investment($data);
+
+       if(!$create)
+       {   //if there was error while creating
+           session()->flash('error','Failed to make investment, refresh and try again!');
+           return;
+       }
+
+       //check for sender in database to update balance
+       $user = User::find($au->id);
+       $user->balance -= $this->r->amount;
+       $user->investments += 1;
+       //save details
+       $create->save();
+       $user->save();
+
+       //send WithdrawalMail
+       Notification::send(Auth::user(),new InvestmentMail($create));
+
+       //if successful
+       session()->flash('success','Congrats, investment successful!');
+       return;
+
+         }
+
+
+        else {
+        //if there was error while creating
+        session()->flash('error','Failed to make investment, you have an ongoing investment!');
+        return;
+        }
+
+
+
+       // create data with array
+       $create = new investment($data);
+
+       if(!$create)
+       {   //if there was error while creating
+           session()->flash('error','Failed to make investment, refresh and try again!');
+           return;
+       }
+
+       //check for sender in database to update balance
+       $user = User::find($au->id);
+       $user->balance -= $this->r->amount;
+       $user->investments += 1;
+       //save details
+       $create->save();
+       $user->save();
+
+       //send WithdrawalMail
+       Notification::send(Auth::user(),new InvestmentMail($create));
+
+       //if successful
+       session()->flash('success','Congrats, investment successful!');
+       return;
+
+    }
      //
     //
     //

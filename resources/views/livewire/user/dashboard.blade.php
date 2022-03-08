@@ -407,20 +407,17 @@
     <div class="col-md-4 card pop_invest_col" align="center">
       <div class="card-header" style="">
         <h3><b>Initiate Investment</b></h3>
-        <h5>Wallet Balance: <b>$ <span id="WalletBal"></span></b></h5>
+        <h5>Wallet Balance: <b>$ <span >{{$user->balance}}</span></b></h5>
         <hr>
       </div>
       <div class="pop_msg_contnt">
         <p align="center" class="color_blue_b">
-            You are about to invest in  <b><span id="pack_inv"></span></b> package which takes a period of  <b><span id="period"></span></b>days and comes with   <b><span id="intr"></span></b>%  total interest
+            You are about to invest in  <b><span id="pack_inv"></span></b> package which takes a period of  <b><span>{{env('INVESTMENT_ELAPSE_DATE')}}</span></b>days and comes with   <b><span >{{env('INTEREST_PERCENTAGE')}}</span></b>%  total interest
         </p>
         <form id="userpackinv" action="/user/activity" method="POST">
             @csrf
             <div class="form-group" align="left">
-              <div class="pop_form_min_max" align="center">
-                <b>Min. Capital: $ <span id="min"></span></b> |
-                <b>Max. Capital: $ <span id="max"></span></b>
-              </div>
+
               <br>
               <label>Enter Amount to Invest</label>
 

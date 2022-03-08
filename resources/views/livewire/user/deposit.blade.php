@@ -44,7 +44,7 @@
                                                 <div class="col-sm-12">
                                                     <h3 class="color_blue_b">
 
-                                                        <center><img src="/img/btc_barcode" heigh="200" width="200"> <img></center>
+                                                        <center><img src="/img/btc_barcode.jpg" heigh="200" width="200"> <img></center>
 
                                                     Wallet Address: {{env('BTC_ADDRESS')}}
 
@@ -90,7 +90,7 @@
             <div class="card-header">
                 <div class="card-title">Deposit History</div>
             </div>
-          
+
             </div>
         </div>
     </div>

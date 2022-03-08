@@ -5,13 +5,13 @@
 <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
     <div>
         <h2 class="text-white pb-2 fw-bold">
-            Dashboard 
+            Dashboard
         </h2>
         @include('livewire.inc.flashMessages')
     </div>
     <div class="ml-md-auto py-2 py-md-0">
-        <a href="/{{Auth::user()->username}}/investments" class="btn btn-white btn-border btn-round mr-2">Investments</a>
-        <a href="/{{Auth::user()->username}}/wallet" class="btn btn-secondary btn-round">Deposit</a>
+        <a href="/user/{{Auth::user()->username}}/investments" class="btn btn-white btn-border btn-round mr-2">Investments</a>
+        <a href="/user/{{Auth::user()->username}}/deposit" class="btn btn-secondary btn-round">Deposit</a>
     </div>
 </div>
 </div>
