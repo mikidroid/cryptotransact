@@ -14,21 +14,21 @@
 
                 <div class="card-body pb-0">
                                         <div class="">
-                        <form action="/user/send/fund" method="post" enctype="multipart/form-data">
+                        <form action="/user/activity" method="post" enctype="multipart/form-data">
+                            @csrf
+                        <input type="hidden" class="form-control" name="type" value="transfer">
                           <div class="form-group" align="left">
-                              <input type="hidden" class="regTxtBox" name="_token" value="MmJqQsLY5MS8Ab2QwP3MchqiHcg8ltrPXyxewBcH">
-                          </div>
                           <div class="input-group pad_top10" >
                             <div class="input-group-prepend" >
                               <span class="input-group-text "><i class="fa fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" name="usn"  required placeholder="Username" >
+                            <input type="text" class="form-control" name="receiver"  required placeholder="Username" >
                           </div>
                           <div class="input-group pad_top10">
                             <div class="input-group-prepend" >
                               <span class=" input-group-text ">$</span>
                             </div>
-                            <input type="text" class="form-control" name="s_amt"  required placeholder="Enter amount you want to send" >
+                            <input type="number" class="form-control" name="amount"  required placeholder="Enter amount you want to send" >
                           </div>
 
                           <div class="form-group" align="">

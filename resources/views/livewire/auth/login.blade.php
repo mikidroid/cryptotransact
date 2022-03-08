@@ -111,7 +111,7 @@
                                                     <div class="" align="center">
 
                                                        <p>
-                                                           <strong>Don&#039;t have an account? <a href="register">Register</a></strong>
+                                                           <strong>Don&#039;t have an account? <a href="/register">Register</a></strong>
                                                        </p>
                                                     </div>
 
@@ -173,11 +173,7 @@
 <!-- Atlantis JS -->
 <script src="atlantis/js/atlantis.min.js"></script>
 
-<!-- Atlantis DEMO methods, don't include it in your project! -->
-<script src="atlantis/js/setting-demo.js"></script>
-<!-- <script src="/atlantis/js/demo.js"></script>    -->
-<script src="atlantis/js/moment.js"></script>
-<script src="atlantis/main.js"></script>
+
 
 
 </body>

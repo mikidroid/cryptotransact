@@ -10,15 +10,15 @@ use Illuminate\Notifications\Notification;
 class InvestmentMail extends Notification
 {
     use Queueable;
-
+    public $data;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
-        //
+      $this->data = $data;
     }
 
     /**
@@ -41,9 +41,11 @@ class InvestmentMail extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+        ->subject('Investment made')
+        ->line('Way to go '.$this->data->username.', You invested $'.$this->data->amount.'!' )
+        ->line('Your profit will be available in '.env('INVESTMENT_ELAPSE_DATE').'Days time.')
+        ->action('visit your dashboard anytime at the link below', url(env('WEBSITE_ADDRESS').'/user/'.$this->data->username.'/dashboard'))
+        ->line('Thank you!');
     }
 
     /**

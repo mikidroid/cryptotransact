@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\investment;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Notifications\InvestmentMail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
+
 
 class InvestmentController extends Controller
 {
@@ -17,6 +21,17 @@ class InvestmentController extends Controller
 
         // shorthand for user eloquent
         $au = Auth::user();
+
+         // Check if investment already exist
+        $checkExisting = new investment();
+        $check = $checkExisting->Expired();
+
+        if(!$check){
+        //if there was error while creating
+        session()->flash('error','Failed to make investment, you have an ongoing investment!');
+        return;
+        }
+
         $data = [
             'email'=>$au->email,
             'earning'=>0,
@@ -34,10 +49,23 @@ class InvestmentController extends Controller
        if(!$create)
        {   //if there was error while creating
            session()->flash('error','Failed to make investment, refresh and try again!');
+           return;
        }
 
-        //if successful
-        session()->flash('success','Congrats, investment successful!');
+       //check for sender in database to update balance
+       $user = User::find($au->id);
+       $user->balance -= $this->r->amount;
+       $user->investments += 1;
+       //save details
+       $create->save();
+       $user->save();
+
+       //send WithdrawalMail
+       Notification::send(Auth::user(),new InvestmentMail($create));
+
+       //if successful
+       session()->flash('success','Congrats, investment successful!');
+       return;
 
     }
 }

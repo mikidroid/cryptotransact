@@ -112,12 +112,10 @@
           <ul class="fa-ul">
             <li><span class="fa-li"><i class="fas fa-check"></i></span>Minimum Investment:     $500</li>
             <li><span class="fa-li"><i class="fas fa-check"></i></span>Maximum Investment:     $15,000</li>
-            <li><span class="fa-li"><i class="fas fa-check"></i></span>On Weekly ROI Model:     10% weekly</li>
-            <li><span class="fa-li"><i class="fas fa-check"></i></span>Profit days 5/7</li>
-            <li><span class="fa-li"><i class="fas fa-check"></i></span>Investment Duration: 3 Months</li>
+            <li><span class="fa-li"><i class="fas fa-check"></i></span>Investment Duration: {{env('INVESTMENT_ELAPSE_DATE')}}Days</li>
             <li class="grey-text"><span class="fa-li"><i class="fas fa-times"></i></span>Referral Commission:     5%</li>
           </ul>
-          <a href="login" class="btn btn-block btn-primary z-depth-0 btn-rounded my-2">Get Started</a>
+          <a href="/login" class="btn btn-block btn-primary z-depth-0 btn-rounded my-2">Get Started</a>
         </div>
       </div>
     </div>
@@ -131,12 +129,10 @@
           <ul class="fa-ul">
             <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Minimum Investment:     $16,000</strong></li>
             <li><span class="fa-li"><i class="fas fa-check"></i></span>Maximum Investment:     $30,000</li>
-            <li><span class="fa-li"><i class="fas fa-check"></i></span>On Weekly ROI Model:     15% weekly</li>
-            <li><span class="fa-li"><i class="fas fa-check"></i></span>Profit days 5/7</li>
-            <li><span class="fa-li"><i class="fas fa-check"></i></span>Investment Duration: 3 Months</li>
+            <li><span class="fa-li"><i class="fas fa-check"></i></span>Investment Duration: {{env('INVESTMENT_ELAPSE_DATE')}}Days</li>
             <li><span class="fa-li"><i class="fas fa-check"></i></span>Referral Commission:     5%</li>
           </ul>
-          <a href="login" class="btn btn-block btn-primary z-depth-0 btn-rounded my-2">Get Started</a>
+          <a href="/login" class="btn btn-block btn-primary z-depth-0 btn-rounded my-2">Get Started</a>
         </div>
       </div>
     </div>
@@ -150,12 +146,10 @@
           <ul class="fa-ul">
             <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Minimum Investment: $25,000	</strong></li>
             <li><span class="fa-li"><i class="fas fa-check"></i></span>Maximum Investment: $59,000</li>
-            <li><span class="fa-li"><i class="fas fa-check"></i></span>On Weekly ROI Model: 25%</li>
-            <li><span class="fa-li"><i class="fas fa-check"></i></span>Profit days 5/7</li>
-            <li><span class="fa-li"><i class="fas fa-check"></i></span>Investment Duration: 3 Months</li>
+            <li><span class="fa-li"><i class="fas fa-check"></i></span>Investment Duration: {{env('INVESTMENT_ELAPSE_DATE')}}Days</li>
             <li><span class="fa-li"><i class="fas fa-check"></i></span>Referral Commission: 5%</li>
           </ul>
-          <a href="login" class="btn btn-block btn-primary z-depth-0 btn-rounded my-2">Get Started</a>
+          <a href="/login" class="btn btn-block btn-primary z-depth-0 btn-rounded my-2">Get Started</a>
         </div>
       </div>
     </div>
@@ -228,18 +222,37 @@
 	<ul class="testimonials">
 			<li class="text-center">
 				<div style="max-width: 800px" class="mx-auto">
-					<p>"TESTIMONIES I&#39;m from South Africa, My Trading on {{env('APP_NAME')}} has been Easy because of their Advanced Trading Equipment which made Forex and Bitcoin Easy for Me Oliver Alfaneti"</p>
-					<div class="author my-2">Oliver Alfaneti</div>
+					<p>"I am from Egypt, My Trading on {{env('APP_NAME')}} is easy and sharp. its the wisest choice i ever made."</p>
+					<div class="author my-2">majda ahmed</div>
+				</div>
+			</li>
+            <li class="text-center">
+				<div style="max-width: 800px" class="mx-auto">
+					<p>"I am from Canada, My Trading on {{env('APP_NAME')}} has been wonderful, admins are always active and they have an Advanced Trading Equipment which made Forex and Bitcoin Easy."</p>
+					<div class="author my-2">Jude mark</div>
 				</div>
 			</li>
 			<li class="text-center">
 				<div style="max-width: 800px" class="mx-auto">
 					<p>"When a friend told me about this site a few months ago i was obviously a little sceptical but as he has been doing it for a while i thought i would try it out. I invested on their Basic plan. Today Received my investment  Profit. Thanks {{env('APP_NAME')}}
 
-Steven Larson from Australia"</p>
-					<div class="author my-2"></div>
+                   Steven Larson from Australia"</p>
+					<div class="author my-2">Sara</div>
 				</div>
-			</li></ul>	<div class="row about_info my-5">
+			</li>
+            <li class="text-center">
+				<div style="max-width: 800px" class="mx-auto">
+					<p>"You need to try this. simple and fast, there is no need to keep waiting"</p>
+					<div class="author my-2">david</div>
+				</div>
+			</li>
+            <li class="text-center">
+				<div style="max-width: 800px" class="mx-auto">
+					<p>"Well trusted and honest admins. Good job admin, keep it up"</p>
+					<div class="author my-2">Chidi</div>
+				</div>
+			</li>
+        </ul>	<div class="row about_info my-5">
 		<div class="col-lg-4 py-2">
 			<div class="media about_item h-100 bg-primary">
 				<div class="media-body">

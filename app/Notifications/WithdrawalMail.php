@@ -10,15 +10,15 @@ use Illuminate\Notifications\Notification;
 class WithdrawalMail extends Notification
 {
     use Queueable;
-
+    public $data;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
-        //
+        $this->data = $data;
     }
 
     /**
@@ -41,9 +41,11 @@ class WithdrawalMail extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+        ->line('Your withdrawal of $'.$this->data->amount.' is being processed!' )
+        ->line('please contact admin for more details.')
+        ->line('Phone number: '.env('ADMIN_PHONE_NUMBER'))
+        ->action('visit your dashboard anytime at the link below', url(env('WEBSITE_ADDRESS').'/user/'.$this->data->username.'/dashboard'))
+        ->line('Thank you!');
     }
 
     /**

@@ -139,7 +139,7 @@
                                                 <div class="">
                                                     <div class="" align="center">
                                                        <p>
-                                                          <strong>Already have an account? <a href="login.html">Login</a></strong>
+                                                          <strong>Already have an account? <a href="/login">Login</a></strong>
                                                        </p>
                                                     </div>
                                                 </div>
@@ -199,11 +199,7 @@
 <!-- Atlantis JS -->
 <script src="atlantis/js/atlantis.min.js"></script>
 
-<!-- Atlantis DEMO methods, don't include it in your project! -->
-<script src="atlantis/js/setting-demo.js"></script>
-<!-- <script src="/atlantis/js/demo.js"></script>    -->
-<script src="atlantis/js/moment.js"></script>
-<script src="atlantis/main.js"></script>
+
 
 <script type="text/javascript">
     $(document).ready(function(){
@@ -218,7 +214,5 @@
 
 </body>
 
-
-<!-- Mirrored from crestcredits.com/register by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 26 Feb 2022 11:14:17 GMT -->
 </html>
 

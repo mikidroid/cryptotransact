@@ -80,7 +80,7 @@
                                                                                                 <img src="img/any.png" alt="image profile" class="avatar-img rounded" style="">
 
                                         </div>
-                                        <a href="/user/{{Auth::user()->username}}/profile">
+                                        <a href="/admin/{{Auth::user()->username}}/profile">
                                             <div class="u-text">
                                                 <h4>Hi {{Auth::user()->username}}</h4>
                                                 <p class="text-muted">{{Auth::user()->email}}</p>
@@ -90,13 +90,12 @@
                                 </li>
                                 <li>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="/user/{{Auth::user()->username}}/dashboard"><span class="fa fa-desktop"></span> &nbsp;Dashboard</a>
-                                    <a class="dropdown-item" href="/user/{{Auth::user()->username}}/deposit"><span class="fa fa-folder"></span>&nbsp; Deposit</a>
-                                    <a class="dropdown-item" href="/user/{{Auth::user()->username}}/investments"><span class="fa fa-wallet"></span>&nbsp; My Investments</a>
-                                    <a class="dropdown-item" href="/user/{{Auth::user()->username}}/withdrawal"><span class="fa fa-download"></span>&nbsp; Withdrawal</a>
-                                    <a class="dropdown-item" href="/user/{{Auth::user()->username}}/downlines"><span class="fa fa-users"></span>&nbsp; Downlines</a>
-                                    <a class="dropdown-item" href="contact">
-                                        <span class="fab fa-teamspeak"></span>&nbsp; Contact Support
+                                    <a class="dropdown-item" href="/admin/{{Auth::user()->username}}/dashboard"><span class="fa fa-desktop"></span> &nbsp;Dashboard</a>
+                                    <a class="dropdown-item" href="/admin/{{Auth::user()->username}}/transfer"><span class="fa fa-folder"></span>&nbsp; Transfer</a>
+                                    <a class="dropdown-item" href="/admin/{{Auth::user()->username}}/investments"><span class="fa fa-wallet"></span>&nbsp; Investments</a>
+
+                                    <a class="dropdown-item" href="/users">
+                                        <span class="fab fa-teamspeak"></span>Users
                                         <i class="fa fa-circle new_not text-danger"></i>
                                                                                 </a>
 
@@ -135,60 +134,44 @@
                 <ul class="nav nav-primary">
 
                     <li class="nav-item">
-                        <a href="/user/{{Auth::user()->username}}/dashboard">
+                        <a href="/admin/{{Auth::user()->username}}/dashboard">
                             <i class="fas fa-layer-group"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
+
+                    <!--
                     <li class="nav-item">
-                        <a href="/user/{{Auth::user()->username}}/profile">
+                        <a href="/admin/{{Auth::user()->username}}/profile">
                             <i class="fas fa-user"></i>
                             <p>My Profile</p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a  href="/user/{{Auth::user()->username}}/deposit">
-                            <i class="fas fa-wallet"></i>
-                            <p>Wallet Deposit</p>
-                        </a>
-                    </li>
+                     -->
+
 
                     <li class="nav-item">
-                        <a href="/user/{{Auth::user()->username}}/investments">
+                        <a href="/admin/{{Auth::user()->username}}/investments">
                             <i class="fas fa-folder"></i>
-                            <p>My Investments</p>
+                            <p>All Investments</p>
                         </a>
                     </li>
 
 
                     <li class="nav-item">
-                        <a href="/user/{{Auth::user()->username}}/transfer">
+                        <a href="/admin/{{Auth::user()->username}}/transfer">
                             <i class="fas fa-folder"></i>
                             <p>Transfer fund</p>
                         </a>
                     </li>
 
-
                     <li class="nav-item">
-                        <a href="/user/{{Auth::user()->username}}/withdrawal">
-                            <i class="fas fa-download"></i>
-                            <p>Withdrawal</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/user/{{Auth::user()->username}}/downlines">
+                        <a href="/admin/{{Auth::user()->username}}/users">
                             <i class="fas fa-users"></i>
-                            <p>Downlines</p>
+                            <p>Users</p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="/user/{{Auth::user()->username}}/contact">
-                            <i class="fab fa-teamspeak"></i>
-                            <p>Contact Support</p>
 
-
-                        </a>
-                    </li>
 
                     <li class="nav-item">
                         <form method="POST" action="/logout">

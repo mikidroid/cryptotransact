@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class TransferMail extends Notification
+class ReceiveTransferMail extends Notification
 {
     use Queueable;
 
@@ -44,10 +44,10 @@ class TransferMail extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-        ->subject('Transfer successful')
-        ->line('Your transfer of $'.$this->data->amount.' to '.$this->data->receiver.' has been succesful!' )
-        ->line('Amount has been deducted from your balance.')
-        ->action('visit your dashboard anytime at the link below', url(env('WEBSITE_ADDRESS').'/user/'.$this->data->username.'/dashboard'))
+        ->subject('You received money')
+        ->line('$'.$this->data->amount.' was sent to you by '.$this->data->sender.'!' )
+        ->line('Amount has been added to your balance.')
+        ->action('visit your dashboard anytime at the link below', url(env('WEBSITE_ADDRESS').'/user/'.$this->data->receiver.'/dashboard'))
         ->line('Thank you!');
     }
 

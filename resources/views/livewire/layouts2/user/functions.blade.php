@@ -128,6 +128,7 @@ $('#readmsg').hide();
 
 <script src="/atlantis/js/core/popper.min.js"></script>
 <script src="/atlantis/js/core/bootstrap.min.js"></script>
+<script src="/atlantis/js/core/jquery.3.2.1.min.js"></script>
 
 <!-- jQuery UI -->
 <script src="/atlantis/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
@@ -164,7 +165,7 @@ $('#readmsg').hide();
 
 
 <script src="/atlantis/js/moment.js"></script>
-<script src="/atlantis/main.js"></script>
+ <script src="/atlantis/main.js"></script>
 
 <script>
 Circles.create({
@@ -279,198 +280,198 @@ fillColor: 'rgba(255, 165, 52, .14)'
 
 <script type="text/javascript">
 
-var inv_dates = [];
-var inv_vals = [];
+    var inv_dates = [];
+    var inv_vals = [];
 
-var inv = '[]' ;
-var js_inv = JSON.parse(inv);
+    var inv = '[]' ;
+    var js_inv = JSON.parse(inv);
 
-$.each( js_inv, function( k, val ) {
-// $('#prnt').append(', ' +ky+": "+val['created_at']);
-var dt = moment(new Date(val['created_at'])).format('MM/YY'); //new Date(val['created_at']);
-inv_dates[k] = dt; // dt.getMonth() + '/'+ dt.getFullYear();
-inv_vals[k] = val['capital'];
-});
+    $.each( js_inv, function( k, val ) {
+    // $('#prnt').append(', ' +ky+": "+val['created_at']);
+    var dt = moment(new Date(val['created_at'])).format('MM/YY'); //new Date(val['created_at']);
+    inv_dates[k] = dt; // dt.getMonth() + '/'+ dt.getFullYear();
+    inv_vals[k] = val['capital'];
+    });
 
-var ctx2 = document.getElementById('statisticsChart2').getContext('2d');
+    var ctx2 = document.getElementById('statisticsChart2').getContext('2d');
 
-var statisticsChart2 = new Chart(ctx2, {
-type: 'line',
-data: {
-    labels: inv_dates, //["Jan", "Feb", "Mar"],
-    datasets:
-    [
-        {
-            label: "Investment Stats",
-            borderColor: '#08C',
-            pointBackgroundColor: 'rgba(0, 84, 180, 0.6)',
-            pointRadius: 0,
-            backgroundColor: 'rgba(0, 84, 220, 0.4)',
-            legendColor: '#08C',
-            fill: true,
-            borderWidth: 2,
-            data: inv_vals //[154, 184, 175]
+    var statisticsChart2 = new Chart(ctx2, {
+    type: 'line',
+    data: {
+        labels: inv_dates, //["Jan", "Feb", "Mar"],
+        datasets:
+        [
+            {
+                label: "Investment Stats",
+                borderColor: '#08C',
+                pointBackgroundColor: 'rgba(0, 84, 180, 0.6)',
+                pointRadius: 0,
+                backgroundColor: 'rgba(0, 84, 220, 0.4)',
+                legendColor: '#08C',
+                fill: true,
+                borderWidth: 2,
+                data: inv_vals //[154, 184, 175]
+            }
+
+        ]
+    },
+    options : {
+        responsive: true,
+        maintainAspectRatio: false,
+        legend: {
+            display: false
+        },
+        tooltips: {
+            bodySpacing: 4,
+            mode:"nearest",
+            intersect: 0,
+            position:"nearest",
+            xPadding:10,
+            yPadding:10,
+            caretPadding:10
+        },
+        layout:{
+            padding:{left:5,right:5,top:15,bottom:15}
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    fontStyle: "500",
+                    beginAtZero: false,
+                    maxTicksLimit: 5,
+                    padding: 10,
+                },
+                gridLines: {
+                    drawTicks: false,
+                    display: false
+                }
+            }],
+            xAxes: [{
+                gridLines: {
+                    zeroLineColor: "transparent"
+                },
+                ticks: {
+                    padding: 10,
+                    fontStyle: "500"
+                }
+            }]
+        },
+        legendCallback: function(chart) {
+            var text = [];
+            text.push('<ul class="' + chart.id + '-legend html-legend">');
+            for (var i = 0; i < chart.data.datasets.length; i++) {
+                text.push('<li><span style="background-color:' + chart.data.datasets[i].legendColor + '"></span>');
+                if (chart.data.datasets[i].label) {
+                    text.push(chart.data.datasets[i].label);
+                }
+                text.push('</li>');
+            }
+            text.push('</ul>');
+            return text.join('');
         }
-
-    ]
-},
-options : {
-    responsive: true,
-    maintainAspectRatio: false,
-    legend: {
-        display: false
-    },
-    tooltips: {
-        bodySpacing: 4,
-        mode:"nearest",
-        intersect: 0,
-        position:"nearest",
-        xPadding:10,
-        yPadding:10,
-        caretPadding:10
-    },
-    layout:{
-        padding:{left:5,right:5,top:15,bottom:15}
-    },
-    scales: {
-        yAxes: [{
-            ticks: {
-                fontStyle: "500",
-                beginAtZero: false,
-                maxTicksLimit: 5,
-                padding: 10,
-            },
-            gridLines: {
-                drawTicks: false,
-                display: false
-            }
-        }],
-        xAxes: [{
-            gridLines: {
-                zeroLineColor: "transparent"
-            },
-            ticks: {
-                padding: 10,
-                fontStyle: "500"
-            }
-        }]
-    },
-    legendCallback: function(chart) {
-        var text = [];
-        text.push('<ul class="' + chart.id + '-legend html-legend">');
-        for (var i = 0; i < chart.data.datasets.length; i++) {
-            text.push('<li><span style="background-color:' + chart.data.datasets[i].legendColor + '"></span>');
-            if (chart.data.datasets[i].label) {
-                text.push(chart.data.datasets[i].label);
-            }
-            text.push('</li>');
-        }
-        text.push('</ul>');
-        return text.join('');
     }
-}
-});
+    });
 
-var inv_dates = [];
-var inv_vals = [];
+    var inv_dates = [];
+    var inv_vals = [];
 
-var inv = '[]' ;
-var js_inv = JSON.parse(inv);
+    var inv = '[]' ;
+    var js_inv = JSON.parse(inv);
 
-$.each( js_inv, function( k, val ) {
-// $('#prnt').append(', ' +ky+": "+val['created_at']);
-var dt = moment(new Date(val['created_at'])).format('MM/YY'); //new Date(val['created_at']);
-inv_dates[k] = dt; // dt.getMonth() + '/'+ dt.getFullYear();
-inv_vals[k] = val['amount'];
-});
+    $.each( js_inv, function( k, val ) {
+    // $('#prnt').append(', ' +ky+": "+val['created_at']);
+    var dt = moment(new Date(val['created_at'])).format('MM/YY'); //new Date(val['created_at']);
+    inv_dates[k] = dt; // dt.getMonth() + '/'+ dt.getFullYear();
+    inv_vals[k] = val['amount'];
+    });
 
-var ctx = document.getElementById('wd_stats').getContext('2d');
+    var ctx = document.getElementById('wd_stats').getContext('2d');
 
-var wd_stats = new Chart(ctx, {
-type: 'line',
-scaleFontColor: '#CCC',
-data: {
-    labels: inv_dates, //["Jan", "Feb", "Mar"],
-    datasets:
-    [
-        {
-            label: "Withdrawal Stats",
-            borderColor: '#FFF',
-            pointBackgroundColor: 'rgba(243, 84, 93, 0.6)',
-            pointRadius: 0,
-            backgroundColor: 'rgba(243, 84, 93, 0.4)',
-            legendColor: '#CCC',
-            fill: true,
-            borderWidth: 2,
-            data: inv_vals //[154, 184, 175]
+    var wd_stats = new Chart(ctx, {
+    type: 'line',
+    scaleFontColor: '#CCC',
+    data: {
+        labels: inv_dates, //["Jan", "Feb", "Mar"],
+        datasets:
+        [
+            {
+                label: "Withdrawal Stats",
+                borderColor: '#FFF',
+                pointBackgroundColor: 'rgba(243, 84, 93, 0.6)',
+                pointRadius: 0,
+                backgroundColor: 'rgba(243, 84, 93, 0.4)',
+                legendColor: '#CCC',
+                fill: true,
+                borderWidth: 2,
+                data: inv_vals //[154, 184, 175]
+            }
+
+        ]
+    },
+    options : {
+        responsive: true,
+        maintainAspectRatio: false,
+        legend: {
+            display: false
+        },
+        tooltips: {
+            bodySpacing: 4,
+            mode:"nearest",
+            intersect: 0,
+            position:"nearest",
+            xPadding:10,
+            yPadding:10,
+            caretPadding:10
+        },
+        layout:{
+            padding:{left:5,right:5,top:15,bottom:15}
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    fontStyle: "500",
+                    beginAtZero: false,
+                    maxTicksLimit: 5,
+                    padding: 10,
+                    fontColor: "#CCC",
+                },
+                gridLines: {
+                    drawTicks: false,
+                    display: false,
+                    color:"rgba(255,255,255,0.5)",
+                }
+            }],
+            xAxes: [{
+                gridLines: {
+                    zeroLineColor: "#FFF",
+                    color:"rgba(255,255,255,0.5)",
+
+                },
+                ticks: {
+                    padding: 10,
+                    fontStyle: "500",
+                    fontColor: "#CCC",
+                }
+            }]
+        },
+        legendCallback: function(chart) {
+            var text = [];
+            text.push('<ul class="' + chart.id + '-legend html-legend">');
+            for (var i = 0; i < chart.data.datasets.length; i++) {
+                text.push('<li><span style="background-color:' + chart.data.datasets[i].legendColor + '"></span>');
+                if (chart.data.datasets[i].label) {
+                    text.push(chart.data.datasets[i].label);
+                }
+                text.push('</li>');
+            }
+            text.push('</ul>');
+            return text.join('');
         }
-
-    ]
-},
-options : {
-    responsive: true,
-    maintainAspectRatio: false,
-    legend: {
-        display: false
-    },
-    tooltips: {
-        bodySpacing: 4,
-        mode:"nearest",
-        intersect: 0,
-        position:"nearest",
-        xPadding:10,
-        yPadding:10,
-        caretPadding:10
-    },
-    layout:{
-        padding:{left:5,right:5,top:15,bottom:15}
-    },
-    scales: {
-        yAxes: [{
-            ticks: {
-                fontStyle: "500",
-                beginAtZero: false,
-                maxTicksLimit: 5,
-                padding: 10,
-                fontColor: "#CCC",
-            },
-            gridLines: {
-                drawTicks: false,
-                display: false,
-                color:"rgba(255,255,255,0.5)",
-            }
-        }],
-        xAxes: [{
-            gridLines: {
-                zeroLineColor: "#FFF",
-                color:"rgba(255,255,255,0.5)",
-
-            },
-            ticks: {
-                padding: 10,
-                fontStyle: "500",
-                fontColor: "#CCC",
-            }
-        }]
-    },
-    legendCallback: function(chart) {
-        var text = [];
-        text.push('<ul class="' + chart.id + '-legend html-legend">');
-        for (var i = 0; i < chart.data.datasets.length; i++) {
-            text.push('<li><span style="background-color:' + chart.data.datasets[i].legendColor + '"></span>');
-            if (chart.data.datasets[i].label) {
-                text.push(chart.data.datasets[i].label);
-            }
-            text.push('</li>');
-        }
-        text.push('</ul>');
-        return text.join('');
     }
-}
-});
+    });
 
 
-</script>
+    </script>
 
 <script >
 $(document).ready(function() {

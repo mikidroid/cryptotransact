@@ -25,15 +25,15 @@
         <div class="d-flex flex-wrap justify-content-around pb-2 pt-4">
             <div class="px-2 pb-2 pb-md-0 text-center">
                 <div id="circles-1"></div>
-                <h6 class="fw-bold mt-3 mb-0">Investments</h6>
+                <h6 class="fw-bold mt-3 mb-0">Users</h6>
             </div>
             <div class="px-2 pb-2 pb-md-0 text-center">
                 <div id="circles-2"></div>
-                <h6 class="fw-bold mt-3 mb-0">Withdrawals</h6>
+                <h6 class="fw-bold mt-3 mb-0">Activities</h6>
             </div>
             <div class="px-2 pb-2 pb-md-0 text-center">
                 <div id="circles-3"></div>
-                <h6 class="fw-bold mt-3 mb-0">Downlines</h6>
+                <h6 class="fw-bold mt-3 mb-0">Investments</h6>
             </div>
         </div>
     </div>
@@ -43,37 +43,24 @@
 <div class="col-md-6">
 <div class="card full-height">
     <div class="card-body">
-        <div class="card-title"><h2>Balances</h2></div>
+        <div class="card-title"><h2>BALANCE</h2></div>
         <div class="row py-3">
             <div class="col-md-6 d-flex flex-column justify-content-around">
                 <a id="wd_bal" title="Click to withdraw" href="javascript:void(0)" >
                     <div class="border_btm">
-                        <h4 class="fw-bold text-uppercase text-success op-8">Wallet</h4>
-                        <h3 class="fw-bold">$ {{$user->balance}}</h3>
-                        <div class="colhd margin_n10">Click to Withdraw Fund</div>
+                        <h4 class="fw-bold text-uppercase text-success op-8">Total income</h4>
+                        <h3 class="fw-bold">$ {{$total_income}}</h3>
+
                         <br>
                     </div>
                 </a>
                 <div class="clearfix"><br></div>
-                <a id="wd_ref_bal" title="Click to withdraw" href="javascript:void(0)">
-                    <div>
-                        <h4 class="fw-bold text-uppercase text-success op-8">Referral Bonus</h4>
-                        <h3 class="fw-bold">$ {{$user->referral_bonus}}</h3>
-                        <div class="colhd margin_n10" >Click to Withdraw Fund</div>
-                        <br>
-                    </div>
-                </a>
+
             </div>
 
             <div class="col-md-6">
     <a href="#">
-                  <div class="border_btm">
-                      <h4 class="fw-bold text-uppercase text-success op-8 ml-2">Earning</h4>
-                      <h3 class="fw-bold ml-2">$ {{$user->earnings}}</h3>
-                
-                      <div class="colhd margin_n10" >&emsp;</div>
-                      <br>
-                  </div>
+
                 </a>
             </div>
         </div>

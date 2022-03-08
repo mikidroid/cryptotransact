@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\InvestmentController;
 use App\Http\Controllers\Controller;
 use App\Models\activity;
+use App\Models\investment;
 use App\Models\User;
 use App\Notifications\ConfirmDepositMail;
 use App\Notifications\DepositMail;
+use App\Notifications\InvestmentMail;
 use App\Notifications\TransferMail;
 use App\Notifications\WithdrawalMail;
 use Illuminate\Support\Facades\Notification;
@@ -40,7 +42,8 @@ class ActivityController extends Controller
 
          //if it is a investment
          case 'investment':
-            new InvestmentController($request);
+            $inv = new InvestmentController($request);
+            $inv->new();
             return back();
             break;
       }
@@ -59,25 +62,28 @@ class ActivityController extends Controller
 
         //check for receiver in database
         $receiver = User::where('username',$r->receiver)->first();
+        //check for sender in database
+        $sender = User::find($au->id);
+
         if(!$receiver)
         {   //if user isntin database
             session()->flash('error','Failed, no username registered with that name!');
-            return back();
+            return;
         }
 
         if(!$r->amount > env('MIN_TRANSFER'))
         {   //if amount isnt = minimum amount
             session()->flash('error','Failed, transfer above $'.env('MIN_TRANSFER').', refresh and try again!');
-            return back();
+            return;
         }
 
-        if($r->amount > $r->balance)
+        if($r->amount > $au->balance)
         {   //if amount isnt = minimum amount
             session()->flash('error','Failed, insufficient balance!');
-            return back();
+            return;
         }
 
-        //create withdrawal activity
+        //create transfer activity
         $transfer = new activity([
             'email'=>$au->email,
             'amount'=>$r->amount,
@@ -85,6 +91,7 @@ class ActivityController extends Controller
             'receiver'=> $r->receiver,
             'user_id'=>$au->id,
             'ref_id'=>$shuffled,
+            'status'=>'successful',
             'type'=>'transfer'
         ]);
         $transfer->save();
@@ -92,18 +99,26 @@ class ActivityController extends Controller
         //set receiver balance
         $receiver->balance += $r->amount;
 
+        //set sender balance
+        $sender->balance -= $r->amount;
+
+
         if(!$transfer)
         {   //if there was error while creating
             session()->flash('error','Failed, error while sending, try again!');
-            return back();
+            return;
         }
 
-        //send DepositMail
-        Notification::sendNow(Auth::user(),new TransferMail($transfer));
+
+        //send TransferMail
+        Notification::route('mail',$receiver->email)->notify(new TransferMail($transfer));
+
+        $receiver->save();
+        $sender->save();
 
         //flash payment pending
         session()->flash('success','Your transfer is successful!');
-        return back();
+        return;
     }
     //
     //
@@ -126,6 +141,7 @@ class ActivityController extends Controller
         $create = new activity([
             'email'=>$au->email,
             'amount'=>$r->amount,
+            'username'=>$au->username,
             'status'=>'pending',
             'user_id'=>$au->id,
             'ref_id'=>$shuffled,
@@ -141,7 +157,7 @@ class ActivityController extends Controller
         }
 
         //send DepositMail
-        Notification::sendNow(Auth::user(),new DepositMail($deposit));
+        Notification::send(Auth::user(),new DepositMail($create));
 
         //flash payment pending
         session()->flash('success','Your payment is awaiting confirmation!');
@@ -165,7 +181,7 @@ class ActivityController extends Controller
             return back();
         }
 
-        if($r->amount > $r->balance)
+        if($r->amount > $au->balance)
         {   //if amount isnt = minimum amount
             session()->flash('error','Failed, insufficient balance!');
             return back();
@@ -175,6 +191,7 @@ class ActivityController extends Controller
         $withdrawal = new activity([
             'email'=>$au->email,
             'amount'=>$r->amount,
+            'username'=>$au->username,
             'status'=>'pending',
             'user_id'=>$au->id,
             'ref_id'=>$shuffled,
@@ -191,23 +208,26 @@ class ActivityController extends Controller
         $setAcc = User::find($au->id);
         if($r->from == 'bonus'){
             $setAcc->referral_bonus -= $r->amount;
+            $setAcc->withdrawals += 1;
             $setAcc->save();
         }
 
         if($r->from == 'balance'){
             $setAcc->balance -= $r->amount;
+            $setAcc->withdrawals += 1;
             $setAcc->save();
         }
 
         $withdrawal->save();
 
         //send WithdrawalMail
-        Notification::sendNow(Auth::user(),new WithdrawalMail($withdrawal));
+        Notification::send(Auth::user(),new WithdrawalMail($withdrawal));
 
         //flash payment pending
         session()->flash('success','Your request is being processed!. Contact admin for more enquires at '.env('ADMIN_EMAIL'));
         return back();
     }
+
 
     //
     //
@@ -215,13 +235,19 @@ class ActivityController extends Controller
     public function ConfirmDeposit($id){
       $confirm = activity::find($id);
       $confirm->status = 'successful';
+
+      //update user balance
+      $addbalance = User::find($confirm->user_id);
+      $addbalance->balance += $confirm->amount;
+
+      //save deposit changes
       $confirm->save();
 
       //flash approved success
       session()->flash('success','Dear Admin, You just approved a deposit!');
 
-      //send WithdrawalMail
-      Notification::sendNow($confirm,new ConfirmDepositMail($confirm));
+      //send Confirm deposit mail
+      Notification::route('mail',$confirm->email)->notify(new ConfirmDepositMail($confirm));
 
       return back();
     }

@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\activity;
+use App\Models\investment;
+use App\Models\downlines;
 use App\Models\Announcement;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -95,13 +98,20 @@ class User extends Authenticatable
         return $this->hasMany(activity::class);
       }
 
+      public function _investment(){
+        return $this->hasMany(investment::class);
+      }
 
-      public function routeNotificationForMail($notification)
+      public function _downline(){
+        return $this->hasMany(downline::class);
+      }
+
+    public function routeNotificationForMail($notification)
     {
         // Return email address only...
         // return $this->email_address;
 
         // Return email address and name...
-        return [$this->email_address => $this->name];
+        return [$this->email => $this->username];
     }
 }

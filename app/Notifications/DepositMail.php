@@ -10,15 +10,18 @@ use Illuminate\Notifications\Notification;
 class DepositMail extends Notification
 {
     use Queueable;
-
+    public $data;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+
+
+    public function __construct($data)
     {
-        //
+        //Set global variable
+        $this->data = $data;
     }
 
     /**
@@ -41,9 +44,11 @@ class DepositMail extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->subject('Deposit made')
+                    ->line('You have made a deposit of $' .$this->data->amount )
+                    ->line('Please be patient while your deposit is being approved.')
+                    ->action('visit your dashboard anytime at the link below', url(env('WEBSITE_ADDRESS').'/user/'.$this->data->username.'/dashboard'))
+                    ->line('Thank you!');
     }
 
     /**

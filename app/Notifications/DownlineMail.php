@@ -10,15 +10,16 @@ use Illuminate\Notifications\Notification;
 class DownlineMail extends Notification
 {
     use Queueable;
-
+    public $data;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
         //
+        $this->data = $data;
     }
 
     /**
@@ -40,11 +41,30 @@ class DownlineMail extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
-    }
+
+                return (new MailMessage)
+                ->subject('New downline')
+                ->line('You have a new user registered with your ref link. transfer of '.$this->data->amount.' to '.$this->data->receiver.' has been succesful!' )
+                ->line('You will get a referral bonus of $'.env('REFERRAL_AMOUNT').' when he/she invests')
+                ->action('visit your dashboard anytime at the link below', url(env('WEBSITE_ADDRESS').'/user/'.$this->data->username.'/dashboard'))
+                ->line('Thank you!');
+            }
+
+            /**
+             * Get the array representation of the notification.
+             *
+             * @param  mixed  $notifiable
+             * @return array
+             */
+            public function toArray($notifiable)
+            {
+                return [
+                    //
+                ];
+            }
+
+
+
 
     /**
      * Get the array representation of the notification.
@@ -52,10 +72,5 @@ class DownlineMail extends Notification
      * @param  mixed  $notifiable
      * @return array
      */
-    public function toArray($notifiable)
-    {
-        return [
-            //
-        ];
-    }
+
 }

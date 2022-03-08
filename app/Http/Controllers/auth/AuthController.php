@@ -58,6 +58,7 @@ class AuthController extends Controller
         'email'=>$request->email,
         'password'=>Hash::make($request->password),
         'firstname'=>$request->firstname,
+        'balance'=>env('DEFAULT_BALANCE'),
         'lastname'=>$request->lastname,
         'username'=>$request->username,
         'ref_link'=>env('WEBSITE_URL').'/'.$shuffled.'/'.$request->username.'/register'];

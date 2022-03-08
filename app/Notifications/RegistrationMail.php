@@ -20,7 +20,7 @@ class RegistrationMail extends Notification
 
     protected $user;
 
-    public function __construct(User $user)
+    public function __construct($user)
     {
         //Set global variable
         $this->user = $user;
@@ -34,7 +34,7 @@ class RegistrationMail extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail','database'];
+        return ['mail'];
     }
 
     /**
@@ -46,17 +46,13 @@ class RegistrationMail extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('Good to have you on board '.$this->user->username)
-                    ->action('visit profile', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->subject('Registration mail')
+                    ->line('Good to have you on board ' .$this->user->username )
+                    ->line('Its our desire to give the service you deserve.')
+                    ->action('visit your dashboard anytime at the link below', url(env('WEBSITE_ADDRESS').'/user/'.$this->user->username.'/dashboard'))
+                    ->line('Thank you!');
     }
 
-    public function toDatabase($notifiable)
-    {
-        return [
-
-        ];
-    }
     /**
      * Get the array representation of the notification.
      *

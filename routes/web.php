@@ -55,7 +55,7 @@ Route::prefix('admin')->middleware('AdminAuth')->group(function () {
     Route::post('/{username}/update-crypto', [AuthController::class,'updateCrypto']);
     Route::get('/{username}/user', [dashboard::class,'user']);
     Route::get('/{username}/users', [dashboard::class,'users']);
-    Route::post('/{username}/confirm-deposit', [dashboard::class,'ConfirmDeposit']);
-    Route::post('/{username}/confirm-withdrawal', [dashboard::class,'ConfirmWithdrawal']);
+    Route::post('/{id}/confirm-deposit', [ActivityController::class,'ConfirmDeposit']);
+    Route::post('/{id}/confirm-withdrawal', [dashboard::class,'ConfirmWithdrawal']);
     Route::post('/activity', [ActivityController::class,'create']);
 });

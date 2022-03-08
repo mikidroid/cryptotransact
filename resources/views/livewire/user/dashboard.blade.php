@@ -4,6 +4,8 @@
 
 							<div id="prnt"></div>
 					<div class="row">
+
+                        <!--
 						<div class="col-md-8">
 							<div class="card">
 								<div class="card-header">
@@ -35,6 +37,8 @@
 									</div>
 								</div>
 							</div>
+
+
 							<div class="card">
 								<div class="card-body pb-0">
 									<div class="px-2 pb-2 pb-md-0 text-center">
@@ -43,7 +47,7 @@
 										<br>
 									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 
@@ -51,7 +55,7 @@
 						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header">
-									<div class="card-title">Available Packages </div>
+									<div class="card-title">Available Packages  </div>
 								</div>
 								<div class="card-body pb-0">
 									<div class="sparkline8-graph dashone-comment  dashtwo-messages">
@@ -69,7 +73,7 @@
                                         </h4>
                                         <div style="font-size: 40px;">
                                             <b>
-                                                168
+                                                {{env('INVESTMENT_ELAPSE_DATE')}}
                                             </b>
                                         </div>
                                         <span class="pk_num">
@@ -93,14 +97,9 @@
                                     <h4 class="u_case">
                                         <strong>Total Interest</strong>
                                     </h4>
-                                     <span class="pk_num">240%</span>
+                                     <span class="pk_num">200%</span>
                                 </div>
-                                 <div class="" align="center">
-                                    <h4 class="u_case">
-                                       <strong> Withdrawal Interval</strong>
-                                    </h4>
-                                    <span class="pk_num">7 Days</span>
-                                </div>
+
                                 <div class="" align="center">
                                     <p>Capital accessible after investment elapses.</p>
                                 </div>
@@ -126,7 +125,7 @@
                                         </h4>
                                         <div style="font-size: 40px;">
                                             <b>
-                                                168
+                                                {{env('INVESTMENT_ELAPSE_DATE')}}
                                             </b>
                                         </div>
                                         <span class="pk_num">
@@ -150,14 +149,9 @@
                                     <h4 class="u_case">
                                         <strong>Total Interest</strong>
                                     </h4>
-                                     <span class="pk_num">359.99999999999%</span>
+                                    <span class="pk_num">200%</span>
                                 </div>
-                                 <div class="" align="center">
-                                    <h4 class="u_case">
-                                       <strong> Withdrawal Interval</strong>
-                                    </h4>
-                                    <span class="pk_num">7 Days</span>
-                                </div>
+
                                 <div class="" align="center">
                                     <p>Capital accessible after investment elapses.</p>
                                 </div>
@@ -183,7 +177,7 @@
                                         </h4>
                                         <div style="font-size: 40px;">
                                             <b>
-                                                168
+                                                {{env('INVESTMENT_ELAPSE_DATE')}}
                                             </b>
                                         </div>
                                         <span class="pk_num">
@@ -207,14 +201,9 @@
                                     <h4 class="u_case">
                                         <strong>Total Interest</strong>
                                     </h4>
-                                     <span class="pk_num">600%</span>
+                                    <span class="pk_num">200%</span>
                                 </div>
-                                 <div class="" align="center">
-                                    <h4 class="u_case">
-                                       <strong> Withdrawal Interval</strong>
-                                    </h4>
-                                    <span class="pk_num">7 Days</span>
-                                </div>
+
                                 <div class="" align="center">
                                     <p>Capital accessible after investment elapses.</p>
                                 </div>
@@ -240,7 +229,7 @@
                                         </h4>
                                         <div style="font-size: 40px;">
                                             <b>
-                                                168
+                                                {{env('INVESTMENT_ELAPSE_DATE')}}
                                             </b>
                                         </div>
                                         <span class="pk_num">
@@ -264,14 +253,9 @@
                                     <h4 class="u_case">
                                         <strong>Total Interest</strong>
                                     </h4>
-                                     <span class="pk_num">720%</span>
+                                     <span class="pk_num">200%</span>
                                 </div>
-                                 <div class="" align="center">
-                                    <h4 class="u_case">
-                                       <strong> Withdrawal Interval</strong>
-                                    </h4>
-                                    <span class="pk_num">7 Days</span>
-                                </div>
+
                                 <div class="" align="center">
                                     <p>Capital accessible after investment elapses.</p>
                                 </div>
@@ -288,7 +272,7 @@
                                             <div class="col-sm-4">
                             <div class="panel card pack-container" style="" align="center">
                                 <div class="panel-head" style="">
-                                    <h3 class="txt_transform">1ST Compounding Package</h3>
+                                    <h3 class="txt_transform">Ultimate Package</h3>
                                 </div>
                                 <div class="" align="center" >
                                     <br>
@@ -297,7 +281,7 @@
                                         </h4>
                                         <div style="font-size: 40px;">
                                             <b>
-                                                84
+                                                {{env('INVESTMENT_ELAPSE_DATE')}}
                                             </b>
                                         </div>
                                         <span class="pk_num">
@@ -321,14 +305,9 @@
                                     <h4 class="u_case">
                                         <strong>Total Interest</strong>
                                     </h4>
-                                     <span class="pk_num">240%</span>
+                                    <span class="pk_num">200 %</span>
                                 </div>
-                                 <div class="" align="center">
-                                    <h4 class="u_case">
-                                       <strong> Withdrawal Interval</strong>
-                                    </h4>
-                                    <span class="pk_num">7 Days</span>
-                                </div>
+
                                 <div class="" align="center">
                                     <p>Capital accessible after investment elapses.</p>
                                 </div>
@@ -342,119 +321,9 @@
                             </div>
                         </div>
 
-                                            <div class="col-sm-4">
-                            <div class="panel card pack-container" style="" align="center">
-                                <div class="panel-head" style="">
-                                    <h3 class="txt_transform">2nd Compounding Package</h3>
-                                </div>
-                                <div class="" align="center" >
-                                    <br>
-                                        <h4 class="u_case" >
-                                            <strong>Period of Investment</strong>
-                                        </h4>
-                                        <div style="font-size: 40px;">
-                                            <b>
-                                                168
-                                            </b>
-                                        </div>
-                                        <span class="pk_num">
-                                                Days
-                                        </span>
-                                </div>
-                                <span align="center">..............................</span>
-                                <div class="" align="center" style="">
-                                        <h4 class="u_case" >
-                                            <strong>Min Investment</strong>
-                                        </h4>
-                                        <span class="pk_num">$ 150000</span>
-                                        <h4 class="u_case">
-                                            <strong>Max Investment</strong>
-                                        </h4>
-                                        <span class="pk_num">$ 500000</span>
-                                </div>
 
-                                <span align="center">..............................</span>
-                                <div class="" align="center">
-                                    <h4 class="u_case">
-                                        <strong>Total Interest</strong>
-                                    </h4>
-                                     <span class="pk_num">500%</span>
-                                </div>
-                                 <div class="" align="center">
-                                    <h4 class="u_case">
-                                       <strong> Withdrawal Interval</strong>
-                                    </h4>
-                                    <span class="pk_num">28 Days</span>
-                                </div>
-                                <div class="" align="center">
-                                    <p>Capital accessible after investment elapses.</p>
-                                </div>
-                                <div class="" align="center">
-                                        <a id="9" href="javascript:void(0)" class="collcc btn btn-info" onclick="confirm_inv('9', '2nd Compounding', '168', '0.029761904761905', '150000', '500000', '0')">
-                                            Invest
-                                        </a>
-                                        <br><br>
-                                </div>
 
-                            </div>
-                        </div>
 
-                                            <div class="col-sm-4">
-                            <div class="panel card pack-container" style="" align="center">
-                                <div class="panel-head" style="">
-                                    <h3 class="txt_transform">3rd Compounding Package</h3>
-                                </div>
-                                <div class="" align="center" >
-                                    <br>
-                                        <h4 class="u_case" >
-                                            <strong>Period of Investment</strong>
-                                        </h4>
-                                        <div style="font-size: 40px;">
-                                            <b>
-                                                336
-                                            </b>
-                                        </div>
-                                        <span class="pk_num">
-                                                Days
-                                        </span>
-                                </div>
-                                <span align="center">..............................</span>
-                                <div class="" align="center" style="">
-                                        <h4 class="u_case" >
-                                            <strong>Min Investment</strong>
-                                        </h4>
-                                        <span class="pk_num">$ 500000</span>
-                                        <h4 class="u_case">
-                                            <strong>Max Investment</strong>
-                                        </h4>
-                                        <span class="pk_num">$ 1000000</span>
-                                </div>
-
-                                <span align="center">..............................</span>
-                                <div class="" align="center">
-                                    <h4 class="u_case">
-                                        <strong>Total Interest</strong>
-                                    </h4>
-                                     <span class="pk_num">580.00000000001%</span>
-                                </div>
-                                 <div class="" align="center">
-                                    <h4 class="u_case">
-                                       <strong> Withdrawal Interval</strong>
-                                    </h4>
-                                    <span class="pk_num">28 Days</span>
-                                </div>
-                                <div class="" align="center">
-                                    <p>Capital accessible after investment elapses.</p>
-                                </div>
-                                <div class="" align="center">
-                                        <a id="12" href="javascript:void(0)" class="collcc btn btn-info" onclick="confirm_inv('12', '3rd Compounding', '336', '0.017261904761905', '500000', '1000000', '0')">
-                                            Invest
-                                        </a>
-                                        <br><br>
-                                </div>
-
-                            </div>
-                        </div>
 
                                                         </div>
     </div>
@@ -545,7 +414,8 @@
         <p align="center" class="color_blue_b">
             You are about to invest in  <b><span id="pack_inv"></span></b> package which takes a period of  <b><span id="period"></span></b>days and comes with   <b><span id="intr"></span></b>%  total interest
         </p>
-        <form id="userpackinv" action="/user/invest/packages" method="post">
+        <form id="userpackinv" action="/user/activity" method="POST">
+            @csrf
             <div class="form-group" align="left">
               <div class="pop_form_min_max" align="center">
                 <b>Min. Capital: $ <span id="min"></span></b> |
@@ -553,9 +423,9 @@
               </div>
               <br>
               <label>Enter Amount to Invest</label>
-              <input type="hidden" class="form-control" name="_token" value="Nshtt9JXVZiRhV4z6bfsC5hLNar0lZwl5BJC6CCc">
-              <input id="p_id" type="hidden" class="form-control" name="p_id" value="">
-              <input type="text" class="form-control" name="capital" placeholder="Enter capital to invest" required>
+
+              <input type="hidden" class="form-control" name="type" value="investment">
+              <input type="number" class="form-control" name="amount" placeholder="Enter capital to invest" required>
             </div>
             <div class="form-group">
                 <button class="collb btn btn-info">Proceed</button>
