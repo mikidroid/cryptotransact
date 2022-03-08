@@ -6,18 +6,15 @@
     </button>
     <!-- Brand -->
     <a class="navbar-brand mr-auto" href="/">
-      <img src="images/logo.png" title="Crestcredits" style="height: 45px"/>
+      <img src="images/logo.png" title="{{env('APP_NAME')}}" style="height: 45px"/>
     </a>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item"><a class="nav-link" href="/" class="active">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
-          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Legal</a>
-              <div class="dropdown-menu">
-                  <a href="info/terms.html" class="dropdown-item">Terms & Conditions</a>
-                  <a href="faqs.html" class="dropdown-item">FAQ</a>
-              <div>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="/terms">Terms</a></li>
+          <li class="nav-item"><a class="nav-link" href="/faq">FAQ</a></li>
+
           <li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a></li>
           <li class="nav-item pl-3 pl-md-2">
             <i class="fas fa-globe"></i>

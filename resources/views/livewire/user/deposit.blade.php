@@ -44,7 +44,7 @@
                                                 <div class="col-sm-12">
                                                     <h3 class="color_blue_b">
 
-                                                        <center><img src="https://chart.googleapis.com/chart?chs=250x250&amp;cht=qr&amp;chl=13HZjAkaA38mswgLgT1n2cosw5gvEqNGZ7" heigh="200" width="200"> <img></center>
+                                                        <center><img src="/img/btc_barcode" heigh="200" width="200"> <img></center>
 
                                                     Wallet Address: {{env('BTC_ADDRESS')}}
 
@@ -90,64 +90,7 @@
             <div class="card-header">
                 <div class="card-title">Deposit History</div>
             </div>
-            <div class="card-body pb-0">
-
-
-                <div class="table-responsive">
-                    <table class="display table table-striped table-hover" >
-                    <thead>
-                        <tr>
-                            <th>Amount</th>
-                            <th>Method</th>
-                            <th>Account</th>
-                            <th>ID</th>
-                            <th>Date</th>
-                            <th>Status</th>
-                            <th>Url</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                                                                                                                            <tr>
-                                    <td>$ 666</td>
-                                    <td>BTC</td>
-                                    <td>
-
-                                    </td>
-                                    <td>
-
-                                    </td>
-                                    <td>2022-02-26 10:09:44</td>
-                                    <td>
-                                                                                                        Pending
-                                                                                                </td>
-                                    <td>
-                                                                                                        <a href="https://crestcredits.com/coinpayment/confirm?id=" target="_blank" class="btn btn-info">Check</a>
-                                                                                                </td>
-                                </tr>
-                                                                                <tr>
-                                    <td>$ 3000</td>
-                                    <td>BTC</td>
-                                    <td>
-
-                                    </td>
-                                    <td>
-
-                                    </td>
-                                    <td>2022-02-26 09:00:11</td>
-                                    <td>
-                                                                                                        Pending
-                                                                                                </td>
-                                    <td>
-                                                                                                        <a href="https://crestcredits.com/coinpayment/confirm?id=" target="_blank" class="btn btn-info">Check</a>
-                                                                                                </td>
-                                </tr>
-                                                                                                                </tbody>
-                </table>
-                <div>
-
-                </div>
-                <br><br>
+          
             </div>
         </div>
     </div>

@@ -15,6 +15,22 @@ Route::middleware(['AdminAuth'])->group(function () {
      return view('livewire.pages.home');}
    );
 
+   Route::get('/faq', function (){
+    return view('livewire.pages.faq');}
+  );
+
+  Route::get('/terms', function (){
+    return view('livewire.pages.terms');}
+  );
+
+  Route::get('/about', function (){
+    return view('livewire.pages.about');}
+  );
+
+  Route::get('/contact', function (){
+    return view('livewire.pages.contact');}
+  );
+
    Route::post('/logout', [AuthController::class,'logout']);
 
    Route::prefix('/')->middleware('Guest')->group(function () {

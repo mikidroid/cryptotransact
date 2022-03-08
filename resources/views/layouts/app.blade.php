@@ -51,11 +51,19 @@
 <meta property="og:type" content="website" />
 
 @livewireStyles
-<link href="css/select2.min.css" rel="stylesheet" />
+<link href="/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
 
 @include('livewire.layouts2.navBar.guest')
+
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+
+<script src="/atlantis/js/core/jquery.3.2.1.min.js"></script>
+<script src="/atlantis/js/core/popper.min.js"></script>
+<script src="/atlantis/js/core/bootstrap.min.js"></script>
+
+<link href="/css/main.css" rel="stylesheet"/>
 
 <link rel="stylesheet" type="text/css" href="slick/slick.css">
 <link rel="stylesheet" type="text/css" href="slick/slick-theme.css">
