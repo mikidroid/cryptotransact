@@ -4,7 +4,7 @@
 
 <div id="prnt"></div>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-xs-12">
         <div class="card">
             <div class="card-header">
                 <div class="card-head-row">
@@ -16,19 +16,28 @@
                     <table class="display table table-hover" >
                         <thead>
                             <tr>
-                                <th>Package</th>
+                                <th>Username</th>
+                                <th>Email</th>
                                 <th>Capital</th>
                                 <th>Date Invested</th>
                                 <th>Elapse</th>
-                                <th>Days Spent</th>
                                 <th>Status</th>
-                                <th>Earning</th>
-                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody class="web-table">
+                        @foreach ($investments as $inv)
+                        <tr>
+                            <td>{{$inv->username}}</td>
+                            <td>{{$inv->email}}</td>
+                            <td>${{$inv->amount}}</td>
+                            <td>{{$inv->start_date}}</td>
+                            <td>{{$inv->elapse_date}}</td>
+                            <td>{{$inv->status}}</td>
+                        </tr>
+                        @endforeach
 
-                                                                        </tbody>
+
+                     </tbody>
                     </table>
                     <div class="text-right col-md-12"></div>
                 </div>

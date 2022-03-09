@@ -76,7 +76,7 @@ class ActivityController extends Controller{
 
         if($request->amount < env('MIN_INVESTMENT'))
         {   //if amount isnt = minimum amount
-            session()->flash('error','Failed, transfer above $'.env('MIN_TRANSFER').', refresh and try again!');
+            session()->flash('error','Failed, invest above $'.env('MIN_INVESTMENT').', refresh and try again!');
             return;
 
         }
@@ -87,12 +87,7 @@ class ActivityController extends Controller{
             return;
         }
 
-        $check = investment::where('user_id',Auth::user()->id)->first();
-        $date = now();
 
-
-        // if null
-         if(is_null($check)){
           // create data with array
         $create = new investment($data);
 
@@ -116,13 +111,6 @@ class ActivityController extends Controller{
         //if successful
         session()->flash('success','Congrats, investment successful!');
         return;
-
-         }
-
-         else{
-            session()->flash('error','Ongoing investment!');
-            return;
-         }
 
 
     }

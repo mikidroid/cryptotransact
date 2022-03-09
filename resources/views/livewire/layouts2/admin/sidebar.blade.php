@@ -77,7 +77,7 @@
                                 <li>
                                     <div class="user-box">
                                         <div class="avatar-lg">
-                                                                                                <img src="img/any.png" alt="image profile" class="avatar-img rounded" style="">
+                                         <img src="img/any.png" alt="image profile" class="avatar-img rounded" style="">
 
                                         </div>
                                         <a href="/admin/{{Auth::user()->username}}/profile">

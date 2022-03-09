@@ -176,3 +176,23 @@
 
 </div>
 </div>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Admin actions</h5>
+        <br>
+        <h6 class="card-subtitle mb-2 text-muted"> <a class="dropdown-item" href="/admin/{{Auth::user()->username}}/dashboard"><span class="fa fa-desktop"></span> &nbsp;Dashboard</a>
+        </h6>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="/admin/{{Auth::user()->username}}/investments"><span class="fa fa-folder"></span>&nbsp; Investments</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="/admin/{{Auth::user()->username}}/transfer"><span class="fa fa-download"></span>&nbsp; Transfer</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="/admin/{{Auth::user()->username}}/users"> <i class="fa fa-circle text-danger"></i>&nbsp; Users </a>
+
+        <div class="dropdown-divider"></div>
+        <h6 class="card-subtitle mb-2 text-muted"> <a class="dropdown-item" href="/logout"><span class="fa fa-arrow-right"></span> &nbsp;Logout</a>
+        </h6>
+    </div>
+
+</div>

@@ -68,7 +68,7 @@
                     <li class="nav-item dropdown hidden-caret">
                         <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                             <div class="avatar-sm">
-                            <img src="/img/any.png" alt="image profile" class="avatar-img rounded-circle" style="">
+                                <img src="img/any.png" alt="image profile" class="avatar-img rounded" style="">
 
                             </div>
                         </a>
@@ -77,7 +77,7 @@
                                 <li>
                                     <div class="user-box">
                                         <div class="avatar-lg">
-                                                                                                <img src="img/any.png" alt="image profile" class="avatar-img rounded" style="">
+                                          <img src="img/any.png" alt="image profile" class="avatar-img rounded" style="">
 
                                         </div>
                                         <a href="/user/{{Auth::user()->username}}/profile">
@@ -92,13 +92,10 @@
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="/user/{{Auth::user()->username}}/dashboard"><span class="fa fa-desktop"></span> &nbsp;Dashboard</a>
                                     <a class="dropdown-item" href="/user/{{Auth::user()->username}}/deposit"><span class="fa fa-folder"></span>&nbsp; Deposit</a>
-                                    <a class="dropdown-item" href="/user/{{Auth::user()->username}}/investments"><span class="fa fa-wallet"></span>&nbsp; My Investments</a>
+                                    <a class="dropdown-item" href="/user/{{Auth::user()->username}}/investments"><span class="fa fa-folder"></span>&nbsp; My Investments</a>
                                     <a class="dropdown-item" href="/user/{{Auth::user()->username}}/withdrawal"><span class="fa fa-download"></span>&nbsp; Withdrawal</a>
                                     <a class="dropdown-item" href="/user/{{Auth::user()->username}}/downlines"><span class="fa fa-users"></span>&nbsp; Downlines</a>
-                                    <a class="dropdown-item" href="contact">
-                                        <span class="fab fa-teamspeak"></span>&nbsp; Contact Support
-                                        <i class="fa fa-circle new_not text-danger"></i>
-                                                                                </a>
+                                    <a class="dropdown-item" href="contact"> <span class="fab fa-folder"></span>&nbsp; Contact Support<i class="fa fa-circle new_not text-danger"></i> </a>
 
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="/logout"><span class="fa fa-arrow-right"></span> &nbsp;Logout</a>

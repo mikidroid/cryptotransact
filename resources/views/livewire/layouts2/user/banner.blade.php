@@ -183,3 +183,26 @@
 
 </div>
 </div>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">User actions</h5>
+        <br>
+        <h6 class="card-subtitle mb-2 text-muted"> <a class="dropdown-item" href="/user/{{Auth::user()->username}}/dashboard"><span class="fa fa-desktop"></span> &nbsp;Dashboard</a>
+        </h6>
+        <div class="dropdown-divider"></div>
+        <h6 class="card-subtitle mb-2 text-muted"> <a class="dropdown-item" href="/user/{{Auth::user()->username}}/deposit"><span class="fa fa-folder"></span>&nbsp; Deposit</a>
+        </h6>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="/user/{{Auth::user()->username}}/investments"><span class="fa fa-folder"></span>&nbsp; My Investments</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="/user/{{Auth::user()->username}}/withdrawal"><span class="fa fa-download"></span>&nbsp; Withdrawal</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="contact"> <i class="fa fa-circle text-danger"></i>&nbsp; Contact Support &nbsp; </a>
+
+        <div class="dropdown-divider"></div>
+        <h6 class="card-subtitle mb-2 text-muted"> <a class="dropdown-item" href="/logout"><span class="fa fa-arrow-right"></span> &nbsp;Logout</a>
+        </h6>
+    </div>
+
+</div>
