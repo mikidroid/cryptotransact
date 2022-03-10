@@ -29,6 +29,14 @@
 						<p class="m-0"><a href="#" target="_blank">{{env('ADMIN_PHONE_NUMBER')}}</a></p>
 					</div>
 				</li>
+				
+				<li>
+					<i class="fas fa-comment-dots text-primary wow fadeIn"></i>
+					<div>
+						<h2>Whatsapp Chat:</h2>
+						<p class="m-0"><a href="{{env('ADMIN_WHATSAPP_LINK')}}">{{env('ADMIN_WHATSAPP_LINK')}}</a></p>
+					</div>
+				</li>
 								<li>
 					<i class="fa fa-envelope text-primary wow fadeIn"></i>
 					<div>
