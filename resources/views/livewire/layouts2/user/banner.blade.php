@@ -197,11 +197,20 @@
         <a class="dropdown-item" href="/user/{{Auth::user()->username}}/investments"><span class="fa fa-folder"></span>&nbsp; My Investments</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="/user/{{Auth::user()->username}}/withdrawal"><span class="fa fa-download"></span>&nbsp; Withdrawal</a>
+        
+        <!--
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="contact"> <i class="fa fa-circle text-danger"></i>&nbsp; Contact Support &nbsp; </a>
+        
+        -->
 
         <div class="dropdown-divider"></div>
-        <h6 class="card-subtitle mb-2 text-muted"> <a class="dropdown-item" href="/logout"><span class="fa fa-arrow-right"></span> &nbsp;Logout</a>
+        <h6 class="card-subtitle mb-2 text-muted"> <form method="POST" action="/logout">
+                            @csrf
+                            <button class="dropdown-item btn btn-link" type="submit">
+                                <i class="fas fa-arrow-right"></i>
+                                Logout
+                            </button></form>
         </h6>
     </div>
 

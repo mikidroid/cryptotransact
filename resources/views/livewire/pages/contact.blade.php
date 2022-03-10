@@ -34,7 +34,7 @@
 					<i class="fas fa-comment-dots text-primary wow fadeIn"></i>
 					<div>
 						<h2>Whatsapp Chat:</h2>
-						<p class="m-0"><a href="{{env('ADMIN_WHATSAPP_LINK')}}">{{env('ADMIN_WHATSAPP_LINK')}}</a></p>
+						<p class="m-0"><a href="{{env('ADMIN_WHATSAPP_LINK')}}">Click to chat</a></p>
 					</div>
 				</li>
 								<li>

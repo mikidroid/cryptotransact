@@ -7,7 +7,7 @@
 				<div class="col-md-6">
 					<h1>Short-term trading. It's what we do.</h1>
 					<p>Join 125,000+ traders who have opened an account with {{env('APP_NAME')}}</p>
-					<a href="register.html" class="btn btn-secondary">Create free account</a>
+					<a href="/register" class="btn btn-secondary">Create free account</a>
 				</div>
 			</div>
 

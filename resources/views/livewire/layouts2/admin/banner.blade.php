@@ -10,8 +10,7 @@
         @include('livewire.inc.flashMessages')
     </div>
     <div class="ml-md-auto py-2 py-md-0">
-        <a href="/{{Auth::user()->username}}/investments" class="btn btn-white btn-border btn-round mr-2">Investments</a>
-        <a href="/{{Auth::user()->username}}/wallet" class="btn btn-secondary btn-round">Deposit</a>
+     
     </div>
 </div>
 </div>
@@ -191,7 +190,12 @@
         <a class="dropdown-item" href="/admin/{{Auth::user()->username}}/users"> <i class="fa fa-circle text-danger"></i>&nbsp; Users </a>
 
         <div class="dropdown-divider"></div>
-        <h6 class="card-subtitle mb-2 text-muted"> <a class="dropdown-item" href="/logout"><span class="fa fa-arrow-right"></span> &nbsp;Logout</a>
+        <h6 class="card-subtitle mb-2 text-muted">  <form method="POST" action="/logout">
+                            @csrf
+                            <button class="dropdown-item btn btn-link" type="submit">
+                                <i class="fas fa-arrow-right"></i>
+                                Logout
+                            </button></form>
         </h6>
     </div>
 

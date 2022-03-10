@@ -101,7 +101,7 @@
                                                         </button>
                                                     </div>
                                                     <div class="" align="center" >
-                                                                                                                    <a class="btn btn-link" href="forgot-password">
+                                                                                                           <a class="btn btn-link" href="#">
                                                                 Forgot Your Password?
                                                             </a>
                                                                                                             </div>

@@ -80,6 +80,11 @@
  @include('livewire.layouts2.footer.main')
  @include('livewire.layouts2.footer.dashboards')
  @yield('homeFunctions')
+ 
+ <!-- Tawk.to chat -->
+ 
+ 
+ 
 </body>
 
 </html>

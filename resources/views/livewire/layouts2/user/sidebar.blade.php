@@ -98,7 +98,14 @@
                                     <a class="dropdown-item" href="contact"> <span class="fab fa-folder"></span>&nbsp; Contact Support<i class="fa fa-circle new_not text-danger"></i> </a>
 
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="/logout"><span class="fa fa-arrow-right"></span> &nbsp;Logout</a>
+                                
+                                    
+                                 <form method="POST" action="/logout">
+                            @csrf
+                            <button class="dropdown-item btn btn-link" type="submit">
+                                <i class="fas fa-arrow-right"></i>
+                                Logout
+                            </button></form>
 
                                 </li>
                             </div>
@@ -171,6 +178,8 @@
                             <i class="fas fa-download"></i>
                             <p>Withdrawal</p>
                         </a>
+                        
+                        <!--
                     </li>
                     <li class="nav-item">
                         <a href="/user/{{Auth::user()->username}}/downlines">
@@ -178,6 +187,8 @@
                             <p>Downlines</p>
                         </a>
                     </li>
+                    
+                    
                     <li class="nav-item">
                         <a href="/user/{{Auth::user()->username}}/contact">
                             <i class="fab fa-mobile"></i>
@@ -186,6 +197,8 @@
 
                         </a>
                     </li>
+                    
+                    -->
 
                     <li class="nav-item">
                         <form method="POST" action="/logout">
