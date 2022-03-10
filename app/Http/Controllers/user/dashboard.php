@@ -130,8 +130,8 @@ class dashboard extends Controller
    {
     if(Auth::user()->username == 'admin' || Auth::user()->level > 2){
         $user = User::where('username',$username)->first();
-        $_activity = activity::where('type','transfer')->get();
-        return view('livewire.admin.transfer',['user'=>$user,'activities'=>$_activity,
+        $_transfer = activity::where('type','transfer')->get();
+        return view('livewire.admin.transfer',['user'=>$user,'transfers'=>$_transfer,
         'user_count'=>$this->userCount,
         'activity_count'=>$this->activityCount,
         'investment_count'=>$this->investmentCount,

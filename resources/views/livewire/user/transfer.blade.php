@@ -59,6 +59,14 @@
             </tr>
         </thead>
         <tbody>
+       @foreach ($transfers as $inv)
+                        <tr>
+                            <td>{{$inv->sender}}</td>
+                            <td>{{$inv->receiver}}</td>
+                            <td>${{$inv->amount}}</td>
+                            <td>{{$inv->created_at}}</td>
+                           </tr>
+                        @endforeach
 
 
                     </tbody>

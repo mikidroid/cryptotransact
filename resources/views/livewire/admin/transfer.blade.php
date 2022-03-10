@@ -60,7 +60,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($activities as $tra)
+            @foreach ($transfers as $tra)
             <tr>
                 <td>{{$tra->sender}}</td>
                 <td>{{$tra->receiver}}</td>

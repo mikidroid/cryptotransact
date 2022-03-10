@@ -4,7 +4,7 @@
 
 <div id="prnt"></div>
 <div class="row">
-    <div class="col-xs-12">
+    <div class="col-md-12">
         <div class="card">
             <div class="card-header">
                 <div class="card-head-row">
