@@ -46,7 +46,7 @@
 
                                                         <center><img src="/img/btc_barcode.jpg" heigh="200" width="200"> <img></center>
 
-                                                    Wallet Address: {{env('BTC_ADDRESS')}}
+                                                    <b>{{env('BTC_ADDRESS')}}</b>
 
                                                     </h3>
                                                     <!--<h4 class="text-danger">Account Number: 09876545678</h4>-->
