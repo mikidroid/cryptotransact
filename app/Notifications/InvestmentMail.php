@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class InvestmentMail extends Notification
+class InvestmentMail extends Notification implements ShouldQueue
 {
     use Queueable;
     public $data;
@@ -43,7 +43,7 @@ class InvestmentMail extends Notification
         return (new MailMessage)
         ->subject('Investment made')
         ->line('Way to go '.$this->data->username.', You invested $'.$this->data->amount.'!' )
-        ->line('Your profit will be available in '.env('INVESTMENT_ELAPSE_DATE').'Days time.')
+        ->line('Your profit will be available in '.$this->data->period.' Days time.')
         ->action('visit your dashboard anytime at the link below', url(env('WEBSITE_ADDRESS').'/user/'.$this->data->username.'/dashboard'))
         ->line('Thank you!');
     }

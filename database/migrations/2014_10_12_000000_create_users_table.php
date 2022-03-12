@@ -31,9 +31,9 @@ class CreateUsersTable extends Migration
             $table->string('wallet_address')->nullable();
             $table->string('avatar_url', 2048)->nullable();
             $table->string('ref_link');
-            $table->integer('balance')->default(200);
-            $table->integer('referral_bonus')->default(0);
-            $table->integer('earnings')->default(0);
+            $table->float('balance',9,2)->default(0);
+            $table->float('referral_bonus',9,0)->default(0);
+            $table->float('earnings',9,0)->default(0);
             $table->integer('downlines')->default(0);
             $table->integer('investments')->default(0);
             $table->integer('withdrawals')->default(0);

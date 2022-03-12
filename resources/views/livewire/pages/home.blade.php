@@ -6,7 +6,7 @@
 			<div class="row">
 				<div class="col-md-6">
 					<h1>Short-term trading. It's what we do.</h1>
-					<p>Join 125,000+ traders who have opened an account with {{env('APP_NAME')}}</p>
+					<p>Join 133+ traders who have opened an account with {{env('APP_NAME')}}</p>
 					<a href="/register" class="btn btn-secondary">Create free account</a>
 				</div>
 			</div>
@@ -93,6 +93,7 @@
 	</div>
 </div>
 	<div class="section_title text-center my-5">
+
 		<h2>Our Trading Plans</h2>
 		<p>Choose your best Trading Plan</p>
 	</div>
@@ -112,10 +113,12 @@
           <ul class="fa-ul">
             <li><span class="fa-li"><i class="fas fa-check"></i></span>Minimum Investment:     $500</li>
             <li><span class="fa-li"><i class="fas fa-check"></i></span>Maximum Investment:     $15,000</li>
-            <li><span class="fa-li"><i class="fas fa-check"></i></span>Investment Duration: {{env('INVESTMENT_ELAPSE_DATE')}}Days</li>
+            <li><span class="fa-li"><i class="fas fa-check"></i></span>On Weekly ROI Model:     10% weekly</li>
+            <li><span class="fa-li"><i class="fas fa-check"></i></span>Profit days 5/7</li>
+            <li><span class="fa-li"><i class="fas fa-check"></i></span>Investment Duration: 3 Months</li>
             <li class="grey-text"><span class="fa-li"><i class="fas fa-times"></i></span>Referral Commission:     5%</li>
           </ul>
-          <a href="/login" class="btn btn-block btn-primary z-depth-0 btn-rounded my-2">Get Started</a>
+          <a href="/register" class="btn btn-block btn-primary z-depth-0 btn-rounded my-2">Get Started</a>
         </div>
       </div>
     </div>
@@ -129,10 +132,12 @@
           <ul class="fa-ul">
             <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Minimum Investment:     $16,000</strong></li>
             <li><span class="fa-li"><i class="fas fa-check"></i></span>Maximum Investment:     $30,000</li>
-            <li><span class="fa-li"><i class="fas fa-check"></i></span>Investment Duration: {{env('INVESTMENT_ELAPSE_DATE')}}Days</li>
+            <li><span class="fa-li"><i class="fas fa-check"></i></span>On Weekly ROI Model:     15% weekly</li>
+            <li><span class="fa-li"><i class="fas fa-check"></i></span>Profit days 5/7</li>
+            <li><span class="fa-li"><i class="fas fa-check"></i></span>Investment Duration: 3 Months</li>
             <li><span class="fa-li"><i class="fas fa-check"></i></span>Referral Commission:     5%</li>
           </ul>
-          <a href="/login" class="btn btn-block btn-primary z-depth-0 btn-rounded my-2">Get Started</a>
+          <a href="/register" class="btn btn-block btn-primary z-depth-0 btn-rounded my-2">Get Started</a>
         </div>
       </div>
     </div>
@@ -146,10 +151,12 @@
           <ul class="fa-ul">
             <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Minimum Investment: $25,000	</strong></li>
             <li><span class="fa-li"><i class="fas fa-check"></i></span>Maximum Investment: $59,000</li>
-            <li><span class="fa-li"><i class="fas fa-check"></i></span>Investment Duration: {{env('INVESTMENT_ELAPSE_DATE')}}Days</li>
+            <li><span class="fa-li"><i class="fas fa-check"></i></span>On Weekly ROI Model: 25%</li>
+            <li><span class="fa-li"><i class="fas fa-check"></i></span>Profit days 5/7</li>
+            <li><span class="fa-li"><i class="fas fa-check"></i></span>Investment Duration: 3 Months</li>
             <li><span class="fa-li"><i class="fas fa-check"></i></span>Referral Commission: 5%</li>
           </ul>
-          <a href="/login" class="btn btn-block btn-primary z-depth-0 btn-rounded my-2">Get Started</a>
+          <a href="/register" class="btn btn-block btn-primary z-depth-0 btn-rounded my-2">Get Started</a>
         </div>
       </div>
     </div>
@@ -179,6 +186,7 @@
 			<div class="col-md-6">
 				<div class="section_title my-5">
 					<p>Our Services</p>
+
 					<h2>Why Choose Us</h2>
 				</div>
 				<ul class="icon-list">

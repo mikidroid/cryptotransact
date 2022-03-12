@@ -192,7 +192,13 @@
         </h6>
         <div class="dropdown-divider"></div>
         <h6 class="card-subtitle mb-2 text-muted"> <a class="dropdown-item" href="/user/{{Auth::user()->username}}/deposit"><span class="fa fa-folder"></span>&nbsp; Deposit</a>
+        
+        <!-- user profile
+       <div class="dropdown-divider"></div>
+        <h6 class="card-subtitle mb-2 text-muted"> <a class="dropdown-item" href="/user/{{Auth::user()->username}}/profile"><span class="fa fa-folder"></span>&nbsp; Profile</a>
         </h6>
+        </h6>
+        -->
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="/user/{{Auth::user()->username}}/investments"><span class="fa fa-folder"></span>&nbsp; My Investments</a>
         <div class="dropdown-divider"></div>

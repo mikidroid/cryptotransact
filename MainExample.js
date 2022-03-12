@@ -1,0 +1,1 @@
+   <form id="InvForm" action="/user/activity" method="POST">

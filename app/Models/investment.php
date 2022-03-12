@@ -21,7 +21,9 @@ class investment extends Model
         'start_date',
         'expire_date',
         'plan',
-        'username'
+        'username',
+        'interest',
+        'period'
     ];
 
     public function _user(){
@@ -36,10 +38,18 @@ class investment extends Model
           return;
         }
 
-         if($check->elapse_date < $date ){
+        if($check->elapse_date < $date ){
          $userUpdate = User::find(Auth::user()->id);
-         $userUpdate->balance += $check->amount*2;
-         $userUpdate->earnings += $check->amount*2;
+         
+         //convert interest eg. 200%/100 = 2.0
+         $convertInterest = $check->interest/100;
+         
+         //add interest to balance and earning
+         $userUpdate->balance += $check->amount*$convertInterest;
+         
+         $userUpdate->earnings += $check->amount*$convertInterest;
+         
+         //delete investment after fullfiled
          $check->delete();
          return true;
         }

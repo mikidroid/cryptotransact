@@ -19,8 +19,15 @@ class Guest
     public function handle(Request $request, Closure $next)
     {
         if(Auth::check()){
-            return redirect('/');
-          }
-          return $next($request);
+         
+          //goto admin if user is admin
+          if(Auth::user()->username == "admin"||Auth::user()->level > 2){
+             return redirect('/admin/'.Auth::user()->username.'/dashboard'); }
+             
+             //goto user dashboad if not admin
+             return redirect('/user/'.Auth::user()->username.'/dashboard');
+            
+        }
+        return $next($request);
     }
 }

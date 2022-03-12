@@ -17,13 +17,15 @@ class CreateInvestmentsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('username');
-            $table->integer('amount');
+            $table->float('amount',9,2);
             $table->string('email');
             $table->string('start_date')->nullable();
             $table->string('elapse_date')->nullable();
             $table->integer('user_id');
-            $table->integer('earning')->default(0);
-            $table->string('plan')->nullable();
+            $table->float('earning',9,2)->default(0);
+            $table->string('plan');
+            $table->integer('period');
+            $table->float('interest',9,2);
             $table->string('status')->default('ongoing'); //ongoing or fulfilled
         });
     }

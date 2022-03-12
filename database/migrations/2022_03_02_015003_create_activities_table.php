@@ -21,7 +21,7 @@ class CreateActivitiesTable extends Migration
             $table->string('receiver')->nullable();
             $table->integer('phone')->nullable();
             $table->string('username')->nullable();
-            $table->integer('amount');
+            $table->float('amount',9,2);
             $table->string('user_id');
             $table->string('ref_id')->nullable();
             $table->string('type');

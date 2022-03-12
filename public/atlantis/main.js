@@ -3,20 +3,32 @@
 var p_min = 0;
 var p_max = 0;
 
+function submitInv(){
+ 
+  //submit form if everything checks out
+  $('#InvForm').submit();
+ 
+}
 
-function confirm_inv(id, pn, p, di, min, max, wallet)
+function confirm_inv(id, pn, p, interest, min, max, wallet)
 {
 	p_min = min;
 	p_max = max;
+	
 
 	$('#WalletBal').text(Math.fround(wallet).toFixed(2));
-	$('#pack_inv').text(pn);
-	$('#period').text(p);
-	$('#intr').text(Math.fround(di*p*100).toFixed(2));
+	$('#plan').text(pn);
+	$('#elapse').text(p);
+	$('#interest').text(interest);
 	$('#min').text(min);
 	$('#max').text(max);
 	$('#p_id').val(id);
-
+	//Set input fields
+	$('#_plan').val(pn);
+	$('#_elapse').val(p);
+	$('#_interest').val(interest);
+	$('#_min').val(min);
+	$('#_max').val(max)
 	$('#popInvest').show();
 
 }

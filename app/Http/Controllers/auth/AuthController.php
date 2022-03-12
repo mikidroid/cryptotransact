@@ -67,7 +67,8 @@ class AuthController extends Controller
 
         if($createUser->save())
         {
-            $createUser->notify(new RegistrationMail($createUser));
+          //$delay = now()->addMinute();
+          $createUser->notify(new RegistrationMail($createUser));
             session()->flash('success','Congrats! your '.env('APP_NAME').' account is created');
             return redirect('/login');
         }

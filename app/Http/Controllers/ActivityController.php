@@ -48,7 +48,10 @@ class ActivityController extends Controller{
 
          //if it is a investment
          case 'investment':
-            $this->createInvestment($request);
+          $inv = new InvestmentController($request);
+          $inv->new();
+          
+          //  $this->createInvestment($request);
             return back();
             break;
       }
@@ -57,26 +60,34 @@ class ActivityController extends Controller{
     //
     // Investment
     public function createInvestment($request){
-         // Check if investment already exist
-        // $checkExisting = new investment();
-       //  $check = $checkExisting->Expired();
-        // shorthand for user eloquent
+
         $au = Auth::user();
+        $r = $request;
 
         $data = [
             'email'=>$au->email,
             'earning'=>0,
-            'amount'=>$this->r->amount,
+            'amount'=>$r->amount,
             'user_id'=>$au->id,
-            'elapse_date'=>now()->addDays(env('INVESTMENT_ELAPSE_DATE')),
+            'elapse_date'=>now()->addDays($r->period),
+            'plan'=> $r->plan,
+            'interest'=> $r->interest,
+            'period' => $r->period,
             'start_date'=>now(),
            // 'plan'=>r->plan,  //will add later
             'username'=>$au->username
         ];
 
-        if($request->amount < env('MIN_INVESTMENT'))
+        if($request->amount < $r->min)
         {   //if amount isnt = minimum amount
-            session()->flash('error','Failed, invest above $'.env('MIN_INVESTMENT').', refresh and try again!');
+            session()->flash('error','Failed, invest above $'.$r->min.', refresh and try again!');
+            return;
+
+        }
+        
+        if($request->amount > $r->max)
+        {   //if amount isnt = minimum amount
+            session()->flash('error','Failed, invest below $'.$r->max.', refresh and try again!');
             return;
 
         }
@@ -105,7 +116,7 @@ class ActivityController extends Controller{
         $create->save();
         $user->save();
 
-        //send WithdrawalMail
+        //send investmentMail
         Notification::send(Auth::user(),new InvestmentMail($create));
 
         //if successful
@@ -176,6 +187,7 @@ class ActivityController extends Controller{
 
 
         //send TransferMail
+        //$delay = now()->addMinute();
         Notification::route('mail',$receiver->email)->notify(new TransferMail($transfer));
 
         $receiver->save();
@@ -222,6 +234,7 @@ class ActivityController extends Controller{
         }
 
         //send DepositMail
+        //$delay = now()->addMinute();
         Notification::send(Auth::user(),new DepositMail($create));
 
         //flash payment pending
@@ -286,6 +299,7 @@ class ActivityController extends Controller{
         $withdrawal->save();
 
         //send WithdrawalMail
+        //$delay = now()->addMinute();
         Notification::send(Auth::user(),new WithdrawalMail($withdrawal));
 
         //flash payment pending
@@ -312,6 +326,7 @@ class ActivityController extends Controller{
       session()->flash('success','Dear Admin, You just approved a deposit!');
 
       //send Confirm deposit mail
+      //$delay = now()->addMinute();
       Notification::route('mail',$confirm->email)->notify(new ConfirmDepositMail($confirm));
 
       return back();
